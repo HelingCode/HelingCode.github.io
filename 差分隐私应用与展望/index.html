@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple%E8%AF%BB%E4%B9%A6180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E8%AF%BB%E4%B9%A632.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E8%AF%BB%E4%B9%A616.png">
+  <link rel="mask-icon" href="/images/%E8%AF%BB%E4%B9%A6.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.cstube.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何设计一个满足差分隐私的算法？  一般做法：从一个不满足差分隐私的算法出发，往算法里适当地加入一定噪音，以使其输出满足差分隐私的要求。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="差分隐私应用与展望">
+<meta property="og:url" content="http://www.cstube.cn/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%BA%94%E7%94%A8%E4%B8%8E%E5%B1%95%E6%9C%9B/index.html">
+<meta property="og:site_name" content="Heling&#39;s Blog">
+<meta property="og:description" content="如何设计一个满足差分隐私的算法？  一般做法：从一个不满足差分隐私的算法出发，往算法里适当地加入一定噪音，以使其输出满足差分隐私的要求。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.imgdb.cn/item/6000fe873ffa7d37b316de43.png">
+<meta property="og:image" content="https://img.imgdb.cn/item/6001001a3ffa7d37b31775db.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/600101213ffa7d37b317f01b.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/6001001a3ffa7d37b31775db.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/600104713ffa7d37b319597d.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/600104903ffa7d37b3196a6c.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/600106bd3ffa7d37b31a7115.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/600107b13ffa7d37b31ad2c3.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/600108bc3ffa7d37b31b519f.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/60010a903ffa7d37b31c58e3.jpg">
+<meta property="og:image" content="https://img.imgdb.cn/item/6001175e3ffa7d37b324e1e1.jpg">
+<meta property="article:published_time" content="2021-01-15T04:36:31.000Z">
+<meta property="article:modified_time" content="2021-01-15T04:45:11.985Z">
+<meta property="article:author" content="Heling">
+<meta property="article:tag" content="差分隐私">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.imgdb.cn/item/6000fe873ffa7d37b316de43.png">
+
+<link rel="canonical" href="http://www.cstube.cn/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%BA%94%E7%94%A8%E4%B8%8E%E5%B1%95%E6%9C%9B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>差分隐私应用与展望 | Heling's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Heling's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Heling's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%BA%94%E7%94%A8%E4%B8%8E%E5%B1%95%E6%9C%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
+      <meta itemprop="name" content="Heling">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Heling's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          差分隐私应用与展望
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-15 12:36:31 / Modified: 12:45:11" itemprop="dateCreated datePublished" datetime="2021-01-15T12:36:31+08:00">2021-01-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" itemprop="url" rel="index"><span itemprop="name">差分隐私</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>如何设计一个满足差分隐私的算法？</p>
+<blockquote>
+<p>一般做法：从一个不满足差分隐私的算法出发，往算法里适当地加入一定噪音，以使其输出满足差分隐私的要求。    </p>
+</blockquote>
+<a id="more"></a>
+<h2 id="拉普拉斯机制"><a href="#拉普拉斯机制" class="headerlink" title="拉普拉斯机制"></a>拉普拉斯机制</h2><p>假设我们有一个病患数据集D，考虑以下数据库查询：<img src="https://img.imgdb.cn/item/6000fe873ffa7d37b316de43.png" alt=""></p>
+<p>如果我们要发布这个查询结果，如何才能满足$\epsilon$-差分隐私？</p>
+<p>我们首先考虑这个查询结果有多依赖于某个特定病人的信息，如果我们修改D中任意一个病患的数据，上述查询结果最多会改变1，所以我们能用噪声来“掩盖”这种不大于1的改变，就能满足差分隐私。具体来说，我们可以往查询结果中加入一个服从拉普拉斯分布的噪声。<img src="https://img.imgdb.cn/item/6001001a3ffa7d37b31775db.jpg" alt=""></p>
+<p>参数$\lambda$设为$\frac{1}{\epsilon}$，即能满足$\epsilon$-差分隐私。</p>
+<p>如果要发布的结果是下面这个查询结果呢？<img src="https://img.imgdb.cn/item/600101213ffa7d37b317f01b.jpg" alt=""></p>
+<p>首先，我们修改一个病患的数据，则上述查询结果最多改变3，我们可以对其加入拉普拉斯噪声，并把参数</p>
+<p>$\lambda$设为$\frac{3}{\epsilon}$，<img src="https://img.imgdb.cn/item/6001001a3ffa7d37b31775db.jpg" alt=""></p>
+<blockquote>
+<p>一般而言，如果我们要发布一组数值型查询结果，我们可以对每个结果加入独立的拉普拉斯噪声来满足差分隐私。</p>
+<p>噪声参数$\lambda$取决于当我们修改一个人的数据时，查询结果<strong>总会</strong>改变多少。一组查询总共的“最大改变”被称为他们的<strong>敏感度</strong>，取$\lambda$=敏感度/$\epsilon$即能满足$\epsilon$-差分隐私。</p>
+</blockquote>
+<h2 id="随机化回答"><a href="#随机化回答" class="headerlink" title="随机化回答"></a>随机化回答</h2><p>如果我们要发布的数据不是数值型的话，我们可以用其他方法引入噪声，下面介绍一种数据采集的简单机制：随机化回答。</p>
+<p>假设我向一组人提问一个敏感的是非题，出于隐私，有的人可能不愿意给真实答案，解决方案是让每个人在他的答案中加入噪声。<img src="https://img.imgdb.cn/item/600104713ffa7d37b319597d.jpg" alt=""></p>
+<p><img src="https://img.imgdb.cn/item/600104903ffa7d37b3196a6c.jpg" alt=""></p>
+<p>随机化回答可以满足$\epsilon$-差分隐私，直观原因是：由于其随机性，攻击者不能中随机化的输出反推出输入到底是“yes”还是“no”,只要根据$\epsilon$来调整随机化的概率即可。但是我们依然可以通过随机化回答的输出来回答如下问题：</p>
+<p>大概有多少人的真实回答是“yes”?</p>
+<p>假设有10000人用随机化回答给了我回复</p>
+<ul>
+<li>当中有5500个yes和4500个no</li>
+</ul>
+<p>每个人以80%概率给我假回复</p>
+<ul>
+<li>所以大致中共有8000个假回复</li>
+<li>当中大致上有4000个假yes和4000个假no</li>
+</ul>
+<p>据此，我可以判断剩下的真实回答里大概有1500个yes和500个no</p>
+<ul>
+<li>所以大概75%的人的真实回答是yes</li>
+</ul>
+<p><img src="https://img.imgdb.cn/item/600106bd3ffa7d37b31a7115.jpg" alt=""></p>
+<p>总结：</p>
+<ul>
+<li>通过随机修改回复来满足差分隐私</li>
+<li>由于修改时引入的噪声分布已知，因此我们扔可以反推出源数据的大致分布</li>
+<li>但无法反推出个体回复</li>
+</ul>
+<h2 id="差分隐私数据库"><a href="#差分隐私数据库" class="headerlink" title="差分隐私数据库"></a>差分隐私数据库</h2><p><img src="https://img.imgdb.cn/item/600107b13ffa7d37b31ad2c3.jpg" alt=""></p>
+<ul>
+<li>只回答聚合查询的结果</li>
+<li>通过往查询结果中加入噪声来满足差分隐私</li>
+<li>例子：微软的PINQ,Uber的Chorus</li>
+</ul>
+<p>技术难点：</p>
+<ul>
+<li>如何用尽量少的噪声来达到$\epsilon$-差分隐私<ul>
+<li>尤其是在查询需要连接多张数据库表的时候</li>
+</ul>
+</li>
+<li>如何高效地计算查询的敏感度</li>
+<li>如何将差分隐私模块整合到现有数据库中</li>
+</ul>
+<p>展望：</p>
+<p>现有算法尚未能在隐私保护、查询准确性及计算效率三者间取得很好的平衡，例如：Uber的Chrous在不少查询中误差可达100%以上</p>
+<h2 id="差分隐私机器学习"><a href="#差分隐私机器学习" class="headerlink" title="差分隐私机器学习"></a>差分隐私机器学习</h2><p><img src="https://img.imgdb.cn/item/600108bc3ffa7d37b31b519f.jpg" alt=""></p>
+<ul>
+<li><p>在机器学习算法中引入噪声，使得算法生成的模型能满足差分隐私</p>
+</li>
+<li><p>例子：谷歌的TensorFlow Privacy</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tensorflow/privacy">https://github.com/tensorflow/privacy</a></p>
+<p>可用于神经网络训练</p>
+</li>
+</ul>
+<h3 id="TensorFlow-Privacy的基本原理"><a href="#TensorFlow-Privacy的基本原理" class="headerlink" title="TensorFlow Privacy的基本原理"></a>TensorFlow Privacy的基本原理</h3><p>神经网络通常是用随机梯度下降来进行训练的：</p>
+<ol>
+<li>从一组随机的神经网络权重参数出发</li>
+<li>拿一组随机选取的元组来计算权重的梯度</li>
+<li>用梯度来更新权重参数</li>
+<li>重复步骤2-3</li>
+</ol>
+<p>TensorFlow Privacy对步骤2中的梯度加入噪声，以保证训练过程满足差分隐私。</p>
+<p>关于差分隐私机器学习，现有算法的不足：</p>
+<ul>
+<li>准确性还有待 提高</li>
+<li>尚不能很好地处理复杂模型，如GAN</li>
+</ul>
+<p>另有一些新方向，如：</p>
+<ul>
+<li>联邦学习</li>
+<li>与安全多方计算的结合</li>
+</ul>
+<h2 id="差分隐私数据采集"><a href="#差分隐私数据采集" class="headerlink" title="差分隐私数据采集"></a>差分隐私数据采集</h2><p><img src="https://img.imgdb.cn/item/60010a903ffa7d37b31c58e3.jpg" alt=""></p>
+<p>场景：从移动设备中采集用户数据，入应用程序的使用时长等</p>
+<p>为满足差分隐私，让用户采用类似于随机化回答 的方法来提供数据</p>
+<p>例子：谷歌Chrome、苹果iPhone、iPad和Mac、微软Windows10</p>
+<p>技术难点：需要采集的数据可能比较复杂，无法用传统随机化回答问题</p>
+<ul>
+<li>例子：用户输入的新词（字典里面没有的）</li>
+</ul>
+<p>为此，谷歌，苹果和微软都因其采集需要提出了新的随机化算法</p>
+<p>现有不足：</p>
+<ul>
+<li>现有算法要求每个用户对其数据加入相当程度的噪声</li>
+<li>这对后期估计统计数据带来了一些困难</li>
+</ul>
+<p>近年来大家开始探索的新方向：</p>
+<ul>
+<li>与安全计算相结合，以减少满足差分隐私所需的噪声</li>
+</ul>
+<h2 id="差分隐私数据合成"><a href="#差分隐私数据合成" class="headerlink" title="差分隐私数据合成"></a>差分隐私数据合成</h2><p><img src="https://img.imgdb.cn/item/6001175e3ffa7d37b324e1e1.jpg" alt=""></p>
+<p>基本原理：</p>
+<ul>
+<li>先对源数据进行建模，得到一个统计模型</li>
+<li>用统计模型来合成出虚拟产品</li>
+</ul>
+<p>例子：美国普查局的一些数据产品，如<a target="_blank" rel="noopener" href="https://onthemap.ces.census.gov/">https://onthemap.ces.census.gov/</a></p>
+<p>技术难点：</p>
+<ul>
+<li>如何找到一个合适的统计模型？</li>
+<li>如何在统计模型中加入噪声，以满足差分隐私？</li>
+</ul>
+<p>现有不足：</p>
+<ul>
+<li>目前的算法只能处理关系型数据</li>
+<li>对非关系型数据的合成基本上还在摸索阶段，如图数据、文本数据等</li>
+</ul>
+<h2 id="展望：弥补差分隐私本身的不足"><a href="#展望：弥补差分隐私本身的不足" class="headerlink" title="展望：弥补差分隐私本身的不足"></a>展望：弥补差分隐私本身的不足</h2><ul>
+<li>如何设计一个更加贴近实际的隐私模型</li>
+<li>现有文献中已有不少改进差分隐私的尝试，但尚未得到广泛应用，原因：改进后的模型往往过于复杂，难以被大众所认同</li>
+<li>差分隐私虽然有着优雅的数学表达，但并不直接对应任何法律条文<ul>
+<li>满足差分隐私不等于满足隐私保护法律</li>
+</ul>
+</li>
+<li>要解决这一问题，需要计算机界与法律界相互合作</li>
+<li>近来已有学者尝试中法律条文出发来设计隐私保护模型，并借鉴差分隐私的思想</li>
+</ul>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/差分隐私应用与展望/">http://www.cstube.cn/差分隐私应用与展望/</a> <br />版权声明：转载请注明出处</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag"># 差分隐私</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBHexo%E5%8D%9A%E5%AE%A2%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/" rel="prev" title="如何迁移Hexo博客到新电脑">
+      <i class="fa fa-chevron-left"></i> 如何迁移Hexo博客到新电脑
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%9F%BA%E7%A1%80/" rel="next" title="差分隐私基础">
+      差分隐私基础 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">拉普拉斯机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8C%96%E5%9B%9E%E7%AD%94"><span class="nav-number">2.</span> <span class="nav-text">随机化回答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">差分隐私数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">差分隐私机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TensorFlow-Privacy%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">4.1.</span> <span class="nav-text">TensorFlow Privacy的基本原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86"><span class="nav-number">5.</span> <span class="nav-text">差分隐私数据采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E5%90%88%E6%88%90"><span class="nav-number">6.</span> <span class="nav-text">差分隐私数据合成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E6%9C%9B%EF%BC%9A%E5%BC%A5%E8%A1%A5%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E6%9C%AC%E8%BA%AB%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="nav-number">7.</span> <span class="nav-text">展望：弥补差分隐私本身的不足</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Heling"
+      src="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
+  <p class="site-author-name" itemprop="name">Heling</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heling</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.cstube.cn/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%BA%94%E7%94%A8%E4%B8%8E%E5%B1%95%E6%9C%9B/";
+    this.page.identifier = "差分隐私应用与展望/";
+    this.page.title = "差分隐私应用与展望";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://cstube.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
