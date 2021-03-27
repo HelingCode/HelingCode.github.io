@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java中 DecimalFormat 用法详解</title>
+    <url>/Java%E4%B8%AD-DecimalFormat-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h3 id="对Java中-DecimalFormat-的所有基础用法进行了一个汇总。"><a href="#对Java中-DecimalFormat-的所有基础用法进行了一个汇总。" class="headerlink" title="对Java中 DecimalFormat 的所有基础用法进行了一个汇总。"></a>对Java中 DecimalFormat 的所有基础用法进行了一个汇总。</h3><a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestNumberFormat</span></span>&#123; </span><br><span class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span></span>&#123;</span><br><span class="line">　　　　<span class="keyword">double</span> pi = <span class="number">3.1415927</span>;　<span class="comment">//圆周率</span></span><br><span class="line">　　　　<span class="comment">//取一位整数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;0&quot;</span>).format(pi));　　　<span class="comment">//3</span></span><br><span class="line">　　　　<span class="comment">//取一位整数和两位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;0.00&quot;</span>).format(pi));　<span class="comment">//3.14</span></span><br><span class="line">　　　　<span class="comment">//取两位整数和三位小数，整数不足部分以0填补。</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;00.000&quot;</span>).format(pi));<span class="comment">// 03.142</span></span><br><span class="line">　　　　<span class="comment">//取所有整数部分</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;#&quot;</span>).format(pi));　　　<span class="comment">//3</span></span><br><span class="line">　　　　<span class="comment">//以百分比方式计数，并取两位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;#.##%&quot;</span>).format(pi));　<span class="comment">//314.16%</span></span><br><span class="line">　　 　 <span class="keyword">long</span> c =<span class="number">299792458</span>;　　<span class="comment">//光速</span></span><br><span class="line">　　　　<span class="comment">//显示为科学计数法，并取五位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;#.#####E0&quot;</span>).format(c));　<span class="comment">//2.99792E8</span></span><br><span class="line">　　　　<span class="comment">//显示为两位整数的科学计数法，并取四位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;00.####E0&quot;</span>).format(c));　<span class="comment">//29.9792E7</span></span><br><span class="line">　　　　<span class="comment">//每三位以逗号进行分隔。</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;,###&quot;</span>).format(c));　　　<span class="comment">//299,792,458</span></span><br><span class="line">　　　　<span class="comment">//将格式嵌入文本</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;光速大小为每秒,###米。&quot;</span>).format(c));</span><br><span class="line">  </span><br><span class="line">　　&#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>DecimalFormat 类主要靠 # 和 0 两种占位符号来指定数字长度。0 表示如果位数不足则以 0 填充，# 表示只要有可能就把数字拉上这个位置。上面的例子包含了差不多所有的基本用法</p>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/Java中-DecimalFormat-用法详解/">http://www.cstube.cn/Java中-DecimalFormat-用法详解/</a> <br />版权声明：转载请注明出处</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS7启动Tomcat后浏览器无法访问的解决方法</title>
     <url>/CentOS7%E5%90%AF%E5%8A%A8Tomcat%E5%90%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>自己的Linux系统是CentOS7,今天在学习Tomcat的使用的时候，在Linux里面启动成功之后，在Windows浏览器访问<code>http://ip地址:8080</code>失败，原来需要有防火墙的相关操作，要编辑/etc/sysconfig目录下面的iptables文件，但是CentOS7中没有这个文件，所以如果要对防火墙操作，需要更新或者重新安装防火墙服务。</p>
@@ -134,21 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java中 DecimalFormat 用法详解</title>
-    <url>/Java%E4%B8%AD-DecimalFormat-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h3 id="对Java中-DecimalFormat-的所有基础用法进行了一个汇总。"><a href="#对Java中-DecimalFormat-的所有基础用法进行了一个汇总。" class="headerlink" title="对Java中 DecimalFormat 的所有基础用法进行了一个汇总。"></a>对Java中 DecimalFormat 的所有基础用法进行了一个汇总。</h3><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestNumberFormat</span></span>&#123; </span><br><span class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span></span>&#123;</span><br><span class="line">　　　　<span class="keyword">double</span> pi = <span class="number">3.1415927</span>;　<span class="comment">//圆周率</span></span><br><span class="line">　　　　<span class="comment">//取一位整数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;0&quot;</span>).format(pi));　　　<span class="comment">//3</span></span><br><span class="line">　　　　<span class="comment">//取一位整数和两位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;0.00&quot;</span>).format(pi));　<span class="comment">//3.14</span></span><br><span class="line">　　　　<span class="comment">//取两位整数和三位小数，整数不足部分以0填补。</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;00.000&quot;</span>).format(pi));<span class="comment">// 03.142</span></span><br><span class="line">　　　　<span class="comment">//取所有整数部分</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;#&quot;</span>).format(pi));　　　<span class="comment">//3</span></span><br><span class="line">　　　　<span class="comment">//以百分比方式计数，并取两位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;#.##%&quot;</span>).format(pi));　<span class="comment">//314.16%</span></span><br><span class="line">　　 　 <span class="keyword">long</span> c =<span class="number">299792458</span>;　　<span class="comment">//光速</span></span><br><span class="line">　　　　<span class="comment">//显示为科学计数法，并取五位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;#.#####E0&quot;</span>).format(c));　<span class="comment">//2.99792E8</span></span><br><span class="line">　　　　<span class="comment">//显示为两位整数的科学计数法，并取四位小数</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;00.####E0&quot;</span>).format(c));　<span class="comment">//29.9792E7</span></span><br><span class="line">　　　　<span class="comment">//每三位以逗号进行分隔。</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;,###&quot;</span>).format(c));　　　<span class="comment">//299,792,458</span></span><br><span class="line">　　　　<span class="comment">//将格式嵌入文本</span></span><br><span class="line">　　　　System.out.println(<span class="keyword">new</span> DecimalFormat(<span class="string">&quot;光速大小为每秒,###米。&quot;</span>).format(c));</span><br><span class="line">  </span><br><span class="line">　　&#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>DecimalFormat 类主要靠 # 和 0 两种占位符号来指定数字长度。0 表示如果位数不足则以 0 填充，# 表示只要有可能就把数字拉上这个位置。上面的例子包含了差不多所有的基本用法</p>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/Java中-DecimalFormat-用法详解/">http://www.cstube.cn/Java中-DecimalFormat-用法详解/</a> <br />版权声明：转载请注明出处</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo博客的Next主题实现数学公式渲染</title>
     <url>/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/</url>
     <content><![CDATA[<p>在做密码学研究时，经常会使用数学公式进行一系列推导计算，而hexo博客默认使用 hexo-renderer-marked 引擎渲染网页，该引擎会把一些特殊的 markdown 符号转换为相应的 html 标签，比如在 markdown 语法中，下划线<code>_</code>代表斜体，会被渲染引擎处理为<code>&lt;em&gt;</code>标签。<br><a id="more"></a><br>因为类 Latex 格式书写的数学公式下划线<code>_</code>表示下标，有特殊的含义，如果被强制转换为<code>&lt;em&gt;</code>标签，那么 MathJax 引擎在渲染数学公式的时候就会出错。类似的语义冲突的符号还包括<code>*</code>,<code>&#123;</code>, <code>&#125;</code>, <code>\\</code>等。</p>
@@ -161,6 +161,46 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>差分隐私基础</title>
+    <url>/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>数据的隐私保护问题最早由统计学家Dalenius 在20世纪70年代末提出，他认为，保护数据库中的隐私信息，就是要使任何用户（包括合法用户和潜在的攻击者）在访问数据库的过程中无法获取关于任意个体的确切信息 。</p>
+<a id="more"></a>
+<p>从已有的研究来看，k-anonymity及其扩展模型在隐私保护领域影响深远且被广泛应用。这些模 型的基本思想是将数据集里与攻击者背景知识相关的属性定义为准标识符，通过对记录的准标识符值进行泛化、压缩处理，使得所有记录被划分到若干个等价类（Equivalence Group）,每个等价类中的记录具有相同 的准标识符，从而实现将一个记录隐藏在一组记录中。因此，这类模型也被称为基于分组的隐私保护模型。</p>
+<p>差分隐私是Dwork在2006年针对统计数据库的隐私泄露问题提出的一种新的隐私定义。在此定义下，对数据集的计算处理结果对于具体某个记录的变化是不敏感的，单个记录在数据集中或者不在数据集中，对计算结果的影响微乎其微。所以，一 个记录因其加入到数据集中所产生的隐私泄露风险被控制在极小的、可接受的范围内，攻击者无法通过观察计算结果而获取准确的个体信息。</p>
+<p>差分隐私保护模型的思想源自于一个很朴素的观察：<strong>当数据集 Ｄ 中包含个体 Alice时，设 对 Ｄ 进行任意查询操作f（例如计数、求和、平均值、中位数 或其它范围查询等）所得到的结果为ｆ(Ｄ），如果将 Alice的信息从 Ｄ 中删除后进行查询得到的结果仍然为ｆ（Ｄ），则可以认为，Alice的信息并没有因为被包含在数据集 Ｄ 中而产生额外的风险。差分隐私保护就是要保证任一个体在数据集中或者不在数据 集中时，对最终发布的查询结果几乎没有影响。具体地说，设有两个几乎完全相同的数据集（两者的区别仅在于一个记录不同），分别对这两个数据集进行查 询访问，同一查询在两个数据集上产生同一结果的概率的比值接近于１。</strong></p>
+<h2 id="差分隐私定义"><a href="#差分隐私定义" class="headerlink" title="差分隐私定义"></a>差分隐私定义</h2><p><img src="https://img.imgdb.cn/item/600153e13ffa7d37b34644c5.jpg" alt=""></p>
+<p><img src="https://img.imgdb.cn/item/600155113ffa7d37b346de19.jpg"  /></p>
+<h3 id="隐私保护预算"><a href="#隐私保护预算" class="headerlink" title="隐私保护预算"></a>隐私保护预算</h3><p>隐私保护预算$\epsilon$用来控制算法M在两个相邻数据集上获得相同输出的概率比值，它事实上体现了M所能够提供的隐私保护水平。实际应用中，$\epsilon$的取值很小，例如0.01,0.1，或者ln2,ln3等，$\epsilon$越小，表示隐私保护水平越高。当$\epsilon$为0时，表示对于任意临近数据集，算法都将输出两个概率分布完全相同的结果，这些结果也不能反映出任何关于数据集的有用的信息。因此，$\epsilon$的取值要考虑到安全性和可用性之间的平衡。</p>
+<h3 id="敏感度"><a href="#敏感度" class="headerlink" title="敏感度"></a>敏感度</h3><p>敏感度是决定加入噪声大小的关键参数，它指删除数据集中任一记录对查询结果造成的<strong>最大改变</strong>。差分隐私中定义了两种敏感度，即<strong>全局敏感度</strong>和<strong>局部敏感度</strong>。</p>
+<p><img src="https://img.imgdb.cn/item/600159893ffa7d37b349a7f5.jpg" alt=""></p>
+<p>函数的全局敏感度由函数本身决定，不同的函数会有不同的全局敏感度。一些函数的全局敏感度较小，因此只需要加入少量的噪声即可掩盖因一个记录被删除对查询结果所产生的的影响。但某些函数的全局敏感度较大，必须在函数输出中添加足够大的噪声才能保证隐私安全，导致数据可用性较差。因此提出了<strong>局部敏感度</strong>的概念。</p>
+<p><img src="https://img.imgdb.cn/item/60015bc43ffa7d37b34af6b4.jpg" alt=""></p>
+<p><img src="https://img.imgdb.cn/item/60015bf33ffa7d37b34b0fa2.jpg" alt=""></p>
+<p>但是，局部敏感度在一定程度上体现了数据集的数据分布特征，如果直接应用局部敏感度来计算噪声量则会泄露数据集中的敏感信息，因此局部敏感度的<strong>平滑上界</strong>被用来与局部敏感度一起确定噪声量的大小。</p>
+<p><img src="https://img.imgdb.cn/item/6001614c3ffa7d37b34dc624.jpg" alt=""></p>
+<p>所有满足这一定义的函数都可被定义为平滑上界，将局部敏感度带入到此函数中可得到<strong>平滑敏感度</strong>，进而用于计算噪声大小。</p>
+<p><img src="https://img.imgdb.cn/item/600163743ffa7d37b34ed27d.jpg" alt=""></p>
+<p>由于绝大部分关于差分隐私保护的研究均针对计数查询、求和查询等敏感度较小的函数，因此，若无特殊说明，本文中敏感度均指全局敏感度。</p>
+<h2 id="差分隐私的组合性质"><a href="#差分隐私的组合性质" class="headerlink" title="差分隐私的组合性质"></a>差分隐私的组合性质</h2><p>一个复杂的隐私保护问题通常需要多次应用差分隐私才能解决。在这种情况下，为了保证整个过程的隐私保护水平控制在给定的预算$\epsilon$之内，需要合理地将全部预算分配到整个算法的各个步骤中。这时可以利用隐私保护算法的两个组合性质：</p>
+<p><img src="https://img.imgdb.cn/item/60023e303ffa7d37b3ac3e30.jpg" alt=""></p>
+<p><img src="https://img.imgdb.cn/item/60023e8b3ffa7d37b3ac582b.jpg" style="zoom: 67%;" /></p>
+<h2 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h2><p>为了使一个算法满足差分隐私保护的要求，对不同的问题有不同的实现方法，这些实现方法称为“机制”。<strong>拉普拉斯机制</strong>和<strong>指数机制</strong>是两种最基础的差分隐私保护机制。其中，<strong>拉普拉斯机制适用于对数值型结果的保护，指数机制适用于非数值型结果。</strong></p>
+<h3 id="Laplace机制"><a href="#Laplace机制" class="headerlink" title="Laplace机制"></a>Laplace机制</h3><p>Laplace机制通过向确切的查询结果中加入服从Laplace分布的随机噪声来实现$\epsilon$-差分隐私保护。记位置参数为0、尺度参数为b的Laplace分布为<strong>Lap(b)</strong>，那么其概率密度函数为</p>
+<p><img src="https://img.imgdb.cn/item/600240b93ffa7d37b3acfe3f.jpg" alt=""></p>
+<p><img src="https://img.imgdb.cn/item/600241823ffa7d37b3ad3c91.jpg" style="zoom:67%;" /></p>
+<p>噪声（尺度）参数b取决于当我们修改一个人的数据时，查询结果<strong>总会</strong>改变多少。一组查询总共的“最大改变”被称为他们的<strong>敏感度</strong>，取b=敏感度/$\epsilon$即能满足$\epsilon$-差分隐私。</p>
+<h3 id="指数机制"><a href="#指数机制" class="headerlink" title="指数机制"></a>指数机制</h3><p>指数机制适用于非数值型的数据，设查询函数的输出域为$Range$,域中的每个值$r\in Range$为一个实体对象，在指数机制下，函数$q(D,r)\rightarrow R$称为输出值$r$的可用性函数，用来评估输出值$r$的优劣程度。</p>
+<p><img src="https://img.imgdb.cn/item/600245b43ffa7d37b3aeb3db.jpg" style="zoom:67%;" /></p>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/差分隐私基础/">http://www.cstube.cn/差分隐私基础/</a> <br />版权声明：转载请注明出处</p>
+]]></content>
+      <categories>
+        <category>差分隐私</category>
+      </categories>
+      <tags>
+        <tag>差分隐私</tag>
       </tags>
   </entry>
   <entry>
@@ -340,46 +380,6 @@
 <li>近来已有学者尝试中法律条文出发来设计隐私保护模型，并借鉴差分隐私的思想</li>
 </ul>
 <p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/差分隐私应用与展望/">http://www.cstube.cn/差分隐私应用与展望/</a> <br />版权声明：转载请注明出处</p>
-]]></content>
-      <categories>
-        <category>差分隐私</category>
-      </categories>
-      <tags>
-        <tag>差分隐私</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>差分隐私基础</title>
-    <url>/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>数据的隐私保护问题最早由统计学家Dalenius 在20世纪70年代末提出，他认为，保护数据库中的隐私信息，就是要使任何用户（包括合法用户和潜在的攻击者）在访问数据库的过程中无法获取关于任意个体的确切信息 。</p>
-<a id="more"></a>
-<p>从已有的研究来看，k-anonymity及其扩展模型在隐私保护领域影响深远且被广泛应用。这些模 型的基本思想是将数据集里与攻击者背景知识相关的属性定义为准标识符，通过对记录的准标识符值进行泛化、压缩处理，使得所有记录被划分到若干个等价类（Equivalence Group）,每个等价类中的记录具有相同 的准标识符，从而实现将一个记录隐藏在一组记录中。因此，这类模型也被称为基于分组的隐私保护模型。</p>
-<p>差分隐私是Dwork在2006年针对统计数据库的隐私泄露问题提出的一种新的隐私定义。在此定义下，对数据集的计算处理结果对于具体某个记录的变化是不敏感的，单个记录在数据集中或者不在数据集中，对计算结果的影响微乎其微。所以，一 个记录因其加入到数据集中所产生的隐私泄露风险被控制在极小的、可接受的范围内，攻击者无法通过观察计算结果而获取准确的个体信息。</p>
-<p>差分隐私保护模型的思想源自于一个很朴素的观察：<strong>当数据集 Ｄ 中包含个体 Alice时，设 对 Ｄ 进行任意查询操作f（例如计数、求和、平均值、中位数 或其它范围查询等）所得到的结果为ｆ(Ｄ），如果将 Alice的信息从 Ｄ 中删除后进行查询得到的结果仍然为ｆ（Ｄ），则可以认为，Alice的信息并没有因为被包含在数据集 Ｄ 中而产生额外的风险。差分隐私保护就是要保证任一个体在数据集中或者不在数据 集中时，对最终发布的查询结果几乎没有影响。具体地说，设有两个几乎完全相同的数据集（两者的区别仅在于一个记录不同），分别对这两个数据集进行查 询访问，同一查询在两个数据集上产生同一结果的概率的比值接近于１。</strong></p>
-<h2 id="差分隐私定义"><a href="#差分隐私定义" class="headerlink" title="差分隐私定义"></a>差分隐私定义</h2><p><img src="https://img.imgdb.cn/item/600153e13ffa7d37b34644c5.jpg" alt=""></p>
-<p><img src="https://img.imgdb.cn/item/600155113ffa7d37b346de19.jpg"  /></p>
-<h3 id="隐私保护预算"><a href="#隐私保护预算" class="headerlink" title="隐私保护预算"></a>隐私保护预算</h3><p>隐私保护预算$\epsilon$用来控制算法M在两个相邻数据集上获得相同输出的概率比值，它事实上体现了M所能够提供的隐私保护水平。实际应用中，$\epsilon$的取值很小，例如0.01,0.1，或者ln2,ln3等，$\epsilon$越小，表示隐私保护水平越高。当$\epsilon$为0时，表示对于任意临近数据集，算法都将输出两个概率分布完全相同的结果，这些结果也不能反映出任何关于数据集的有用的信息。因此，$\epsilon$的取值要考虑到安全性和可用性之间的平衡。</p>
-<h3 id="敏感度"><a href="#敏感度" class="headerlink" title="敏感度"></a>敏感度</h3><p>敏感度是决定加入噪声大小的关键参数，它指删除数据集中任一记录对查询结果造成的<strong>最大改变</strong>。差分隐私中定义了两种敏感度，即<strong>全局敏感度</strong>和<strong>局部敏感度</strong>。</p>
-<p><img src="https://img.imgdb.cn/item/600159893ffa7d37b349a7f5.jpg" alt=""></p>
-<p>函数的全局敏感度由函数本身决定，不同的函数会有不同的全局敏感度。一些函数的全局敏感度较小，因此只需要加入少量的噪声即可掩盖因一个记录被删除对查询结果所产生的的影响。但某些函数的全局敏感度较大，必须在函数输出中添加足够大的噪声才能保证隐私安全，导致数据可用性较差。因此提出了<strong>局部敏感度</strong>的概念。</p>
-<p><img src="https://img.imgdb.cn/item/60015bc43ffa7d37b34af6b4.jpg" alt=""></p>
-<p><img src="https://img.imgdb.cn/item/60015bf33ffa7d37b34b0fa2.jpg" alt=""></p>
-<p>但是，局部敏感度在一定程度上体现了数据集的数据分布特征，如果直接应用局部敏感度来计算噪声量则会泄露数据集中的敏感信息，因此局部敏感度的<strong>平滑上界</strong>被用来与局部敏感度一起确定噪声量的大小。</p>
-<p><img src="https://img.imgdb.cn/item/6001614c3ffa7d37b34dc624.jpg" alt=""></p>
-<p>所有满足这一定义的函数都可被定义为平滑上界，将局部敏感度带入到此函数中可得到<strong>平滑敏感度</strong>，进而用于计算噪声大小。</p>
-<p><img src="https://img.imgdb.cn/item/600163743ffa7d37b34ed27d.jpg" alt=""></p>
-<p>由于绝大部分关于差分隐私保护的研究均针对计数查询、求和查询等敏感度较小的函数，因此，若无特殊说明，本文中敏感度均指全局敏感度。</p>
-<h2 id="差分隐私的组合性质"><a href="#差分隐私的组合性质" class="headerlink" title="差分隐私的组合性质"></a>差分隐私的组合性质</h2><p>一个复杂的隐私保护问题通常需要多次应用差分隐私才能解决。在这种情况下，为了保证整个过程的隐私保护水平控制在给定的预算$\epsilon$之内，需要合理地将全部预算分配到整个算法的各个步骤中。这时可以利用隐私保护算法的两个组合性质：</p>
-<p><img src="https://img.imgdb.cn/item/60023e303ffa7d37b3ac3e30.jpg" alt=""></p>
-<p><img src="https://img.imgdb.cn/item/60023e8b3ffa7d37b3ac582b.jpg" style="zoom: 67%;" /></p>
-<h2 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h2><p>为了使一个算法满足差分隐私保护的要求，对不同的问题有不同的实现方法，这些实现方法称为“机制”。<strong>拉普拉斯机制</strong>和<strong>指数机制</strong>是两种最基础的差分隐私保护机制。其中，<strong>拉普拉斯机制适用于对数值型结果的保护，指数机制适用于非数值型结果。</strong></p>
-<h3 id="Laplace机制"><a href="#Laplace机制" class="headerlink" title="Laplace机制"></a>Laplace机制</h3><p>Laplace机制通过向确切的查询结果中加入服从Laplace分布的随机噪声来实现$\epsilon$-差分隐私保护。记位置参数为0、尺度参数为b的Laplace分布为<strong>Lap(b)</strong>，那么其概率密度函数为</p>
-<p><img src="https://img.imgdb.cn/item/600240b93ffa7d37b3acfe3f.jpg" alt=""></p>
-<p><img src="https://img.imgdb.cn/item/600241823ffa7d37b3ad3c91.jpg" style="zoom:67%;" /></p>
-<p>噪声（尺度）参数b取决于当我们修改一个人的数据时，查询结果<strong>总会</strong>改变多少。一组查询总共的“最大改变”被称为他们的<strong>敏感度</strong>，取b=敏感度/$\epsilon$即能满足$\epsilon$-差分隐私。</p>
-<h3 id="指数机制"><a href="#指数机制" class="headerlink" title="指数机制"></a>指数机制</h3><p>指数机制适用于非数值型的数据，设查询函数的输出域为$Range$,域中的每个值$r\in Range$为一个实体对象，在指数机制下，函数$q(D,r)\rightarrow R$称为输出值$r$的可用性函数，用来评估输出值$r$的优劣程度。</p>
-<p><img src="https://img.imgdb.cn/item/600245b43ffa7d37b3aeb3db.jpg" style="zoom:67%;" /></p>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/差分隐私基础/">http://www.cstube.cn/差分隐私基础/</a> <br />版权声明：转载请注明出处</p>
 ]]></content>
       <categories>
         <category>差分隐私</category>
