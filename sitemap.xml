@@ -102,21 +102,14 @@
 
   
   <url>
-    <loc>http://www.cstube.cn/tags/Java/</loc>
-    <lastmod>2021-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.cstube.cn/tags/Tomcat/</loc>
-    <lastmod>2021-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.cstube.cn/tags/Servlet/</loc>
+    <lastmod>2021-05-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.cstube.cn/tags/Java/</loc>
     <lastmod>2021-05-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -138,6 +131,13 @@
   
   <url>
     <loc>http://www.cstube.cn/tags/hexo/</loc>
+    <lastmod>2021-05-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.cstube.cn/tags/Tomcat/</loc>
     <lastmod>2021-05-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
