@@ -149,19 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>为Hexo的Next主题首页文章添加阴影</title>
-    <url>/2020/08/01/%E4%B8%BAHexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/</url>
-    <content><![CDATA[<p>在next主题文件下找到\next\source\css_common\components\post的post.styl文件<br><a id="more"></a><br>在.post_block位置,更改如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (hexo-config(&#39;motion.transition.post_block&#39;)) &#123;</span><br><span class="line">    .post-block &#123;</span><br><span class="line">     opacity: 0;</span><br><span class="line">     margin-top: 60px;</span><br><span class="line">     margin-bottom: 60px;</span><br><span class="line">     padding: 25px;</span><br><span class="line">     -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">     -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">    &#125;</span><br><span class="line">    .pagination, .comments &#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>最后执行<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><br>即可生效</p>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2020/08/01/为Hexo的Next主题首页文章添加阴影/">http://www.cstube.cn/2020/08/01/为Hexo的Next主题首页文章添加阴影/</a> <br />版权声明：转载请注明出处</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo博客的Next主题实现数学公式渲染</title>
     <url>/2020/08/02/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/</url>
     <content><![CDATA[<p>在做密码学研究时，经常会使用数学公式进行一系列推导计算，而hexo博客默认使用 hexo-renderer-marked 引擎渲染网页，该引擎会把一些特殊的 markdown 符号转换为相应的 html 标签，比如在 markdown 语法中，下划线<code>_</code>代表斜体，会被渲染引擎处理为<code>&lt;em&gt;</code>标签。<br><a id="more"></a><br>因为类 Latex 格式书写的数学公式下划线<code>_</code>表示下标，有特殊的含义，如果被强制转换为<code>&lt;em&gt;</code>标签，那么 MathJax 引擎在渲染数学公式的时候就会出错。类似的语义冲突的符号还包括<code>*</code>,<code>&#123;</code>, <code>&#125;</code>, <code>\\</code>等。</p>
@@ -177,27 +164,10 @@
       </tags>
   </entry>
   <entry>
-    <title>如何迁移Hexo博客到新电脑</title>
-    <url>/2020/12/07/%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBHexo%E5%8D%9A%E5%AE%A2%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/</url>
-    <content><![CDATA[<p>换了台笔记本，懒得迁移博客，拖了好久还是做了一下迁移，记录一下过程，方便以后查看。<br><a id="more"></a></p>
-<h1 id="必备条件"><a href="#必备条件" class="headerlink" title="必备条件"></a>必备条件</h1><p>安装<code>git</code>,<code>node.js</code></p>
-<h1 id="选择文件"><a href="#选择文件" class="headerlink" title="选择文件"></a>选择文件</h1><p>从之前的博客文件夹中选择必须要拷贝的文件，备份起来。首先是之前自己修改的文件，像配置文件<code>_config.yml,theme</code>文件夹，<code>source</code>文件夹自己写的原始文件这些都是必须要拷贝走的。除此之外还有<code>scaffolds</code>文件夹(文件的模板)，<code>package.json</code>(使用哪些包)，<code>.gitignore</code>(提交忽略哪些文件夹)<br>总结：     </p>
-<ul>
-<li>_config.yml</li>
-<li>themes</li>
-<li>source</li>
-<li>scaffolds</li>
-<li>package.json</li>
-<li>.gitignore<br>是需要备份的，其他文件不需要管。<h1 id="开始迁移"><a href="#开始迁移" class="headerlink" title="开始迁移"></a>开始迁移</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 全局安装hexo</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 把必须拷贝的文件，拷贝到新建的文件夹内，执行以下命令</span><br><span class="line">&#x2F;&#x2F; 在新建的文件夹内打开命令行，安装必要的模块，初始化</span><br><span class="line">&#x2F;&#x2F; 这里不用hexo init初始化，因为配置文件我们已经拷贝过来</span><br><span class="line"></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装其他一些必要的组件</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-<h1 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;先本地预览</span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;此时可以先在localhost:4000 本地预览博客，如果不报错，那就说明迁移成功</span><br></pre></td></tr></table></figure>
-<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><h2 id="生成SSH添加到GitHub"><a href="#生成SSH添加到GitHub" class="headerlink" title="生成SSH添加到GitHub"></a>生成SSH添加到GitHub</h2>在你的博客文件夹中打开git bash,复制一下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-内容换成你自己的Github用户名和邮箱。<br>执行一下两条指令，检查你有没有输入正确。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<p>然后创建SSH,一路回车<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure><br>这个时候它会告诉你已经生成了.ssh的文件夹。在你的电脑中找到这个文件夹。<br>ssh，简单来讲，就是一个秘钥，其中，<code>id_rsa</code>是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code>是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
-<p>而后在GitHub的setting中，找到<code>SSH and GPC keys</code>的设置选项，点击<code>New SSH key</code><br>把你的<code>id_rsa.pub</code>里面的信息复制进去,title随便填写。</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 正式部署</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2020/12/07/如何迁移Hexo博客到新电脑/">http://www.cstube.cn/2020/12/07/如何迁移Hexo博客到新电脑/</a> <br />版权声明：转载请注明出处</p>
+    <title>为Hexo的Next主题首页文章添加阴影</title>
+    <url>/2020/08/01/%E4%B8%BAHexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/</url>
+    <content><![CDATA[<p>在next主题文件下找到\next\source\css_common\components\post的post.styl文件<br><a id="more"></a><br>在.post_block位置,更改如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (hexo-config(&#39;motion.transition.post_block&#39;)) &#123;</span><br><span class="line">    .post-block &#123;</span><br><span class="line">     opacity: 0;</span><br><span class="line">     margin-top: 60px;</span><br><span class="line">     margin-bottom: 60px;</span><br><span class="line">     padding: 25px;</span><br><span class="line">     -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">     -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">    &#125;</span><br><span class="line">    .pagination, .comments &#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>最后执行<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><br>即可生效</p>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2020/08/01/为Hexo的Next主题首页文章添加阴影/">http://www.cstube.cn/2020/08/01/为Hexo的Next主题首页文章添加阴影/</a> <br />版权声明：转载请注明出处</p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -386,6 +356,36 @@
       </categories>
       <tags>
         <tag>差分隐私</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何迁移Hexo博客到新电脑</title>
+    <url>/2020/12/07/%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BBHexo%E5%8D%9A%E5%AE%A2%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/</url>
+    <content><![CDATA[<p>换了台笔记本，懒得迁移博客，拖了好久还是做了一下迁移，记录一下过程，方便以后查看。<br><a id="more"></a></p>
+<h1 id="必备条件"><a href="#必备条件" class="headerlink" title="必备条件"></a>必备条件</h1><p>安装<code>git</code>,<code>node.js</code></p>
+<h1 id="选择文件"><a href="#选择文件" class="headerlink" title="选择文件"></a>选择文件</h1><p>从之前的博客文件夹中选择必须要拷贝的文件，备份起来。首先是之前自己修改的文件，像配置文件<code>_config.yml,theme</code>文件夹，<code>source</code>文件夹自己写的原始文件这些都是必须要拷贝走的。除此之外还有<code>scaffolds</code>文件夹(文件的模板)，<code>package.json</code>(使用哪些包)，<code>.gitignore</code>(提交忽略哪些文件夹)<br>总结：     </p>
+<ul>
+<li>_config.yml</li>
+<li>themes</li>
+<li>source</li>
+<li>scaffolds</li>
+<li>package.json</li>
+<li>.gitignore<br>是需要备份的，其他文件不需要管。<h1 id="开始迁移"><a href="#开始迁移" class="headerlink" title="开始迁移"></a>开始迁移</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 全局安装hexo</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 把必须拷贝的文件，拷贝到新建的文件夹内，执行以下命令</span><br><span class="line">&#x2F;&#x2F; 在新建的文件夹内打开命令行，安装必要的模块，初始化</span><br><span class="line">&#x2F;&#x2F; 这里不用hexo init初始化，因为配置文件我们已经拷贝过来</span><br><span class="line"></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装其他一些必要的组件</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<h1 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;先本地预览</span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;此时可以先在localhost:4000 本地预览博客，如果不报错，那就说明迁移成功</span><br></pre></td></tr></table></figure>
+<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><h2 id="生成SSH添加到GitHub"><a href="#生成SSH添加到GitHub" class="headerlink" title="生成SSH添加到GitHub"></a>生成SSH添加到GitHub</h2>在你的博客文件夹中打开git bash,复制一下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+内容换成你自己的Github用户名和邮箱。<br>执行一下两条指令，检查你有没有输入正确。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+<p>然后创建SSH,一路回车<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure><br>这个时候它会告诉你已经生成了.ssh的文件夹。在你的电脑中找到这个文件夹。<br>ssh，简单来讲，就是一个秘钥，其中，<code>id_rsa</code>是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code>是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
+<p>而后在GitHub的setting中，找到<code>SSH and GPC keys</code>的设置选项，点击<code>New SSH key</code><br>把你的<code>id_rsa.pub</code>里面的信息复制进去,title随便填写。</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 正式部署</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2020/12/07/如何迁移Hexo博客到新电脑/">http://www.cstube.cn/2020/12/07/如何迁移Hexo博客到新电脑/</a> <br />版权声明：转载请注明出处</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
