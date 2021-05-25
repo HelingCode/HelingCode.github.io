@@ -23,7 +23,7 @@
   <meta name="description" content="在做密码学研究时，经常会使用数学公式进行一系列推导计算，而hexo博客默认使用 hexo-renderer-marked 引擎渲染网页，该引擎会把一些特殊的 markdown 符号转换为相应的 html 标签，比如在 markdown 语法中，下划线_代表斜体，会被渲染引擎处理为&lt;em&gt;标签。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo博客的Next主题实现数学公式渲染">
-<meta property="og:url" content="http://www.cstube.cn/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/index.html">
+<meta property="og:url" content="http://www.cstube.cn/2020/08/02/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/index.html">
 <meta property="og:site_name" content="Heling&#39;s Blog">
 <meta property="og:description" content="在做密码学研究时，经常会使用数学公式进行一系列推导计算，而hexo博客默认使用 hexo-renderer-marked 引擎渲染网页，该引擎会把一些特殊的 markdown 符号转换为相应的 html 标签，比如在 markdown 语法中，下划线_代表斜体，会被渲染引擎处理为&lt;em&gt;标签。">
 <meta property="og:locale" content="en_US">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.cstube.cn/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/">
+<link rel="canonical" href="http://www.cstube.cn/2020/08/02/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/">
 
 
 <script id="page-configurations">
@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/">
+    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/2020/08/02/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
@@ -245,7 +245,7 @@
         <p>在做密码学研究时，经常会使用数学公式进行一系列推导计算，而hexo博客默认使用 hexo-renderer-marked 引擎渲染网页，该引擎会把一些特殊的 markdown 符号转换为相应的 html 标签，比如在 markdown 语法中，下划线<code>_</code>代表斜体，会被渲染引擎处理为<code>&lt;em&gt;</code>标签。<br><a id="more"></a><br>因为类 Latex 格式书写的数学公式下划线<code>_</code>表示下标，有特殊的含义，如果被强制转换为<code>&lt;em&gt;</code>标签，那么 MathJax 引擎在渲染数学公式的时候就会出错。类似的语义冲突的符号还包括<code>*</code>,<code>&#123;</code>, <code>&#125;</code>, <code>\\</code>等。</p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>更换 Hexo 的 markdown 渲染引擎，hexo-renderer-kramed 引擎是在默认的渲染引擎 hexo-renderer-marked 的基础上修改了一些 bug ，两者比较接近，也比较轻量级。如果你是Windows系统，直接使用Git Bash的命令行在Hexo根目录下使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>然后，更换引擎后行间公式可以正确渲染了，但是这样还没有完全解决问题，行内公式的渲染还是有问题，因为 hexo-renderer-kramed 引擎也有语义冲突的问题。接下来到博客根目录下，找到node_modules\kramed\lib\rules\inline.js，做相应的修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var inline &#x3D; &#123;</span><br><span class="line">  &#x2F;&#x2F; 第2行修改</span><br><span class="line">  escape: &#x2F;^\\([&#96;*\[\]()#$+\-.!_&gt;])&#x2F;,</span><br><span class="line">  ...</span><br><span class="line">  &#x2F;&#x2F; 第20行修改</span><br><span class="line">  em: &#x2F;^\*((?:\*\*|[\s\S])+?)\*(?!\*)&#x2F;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h3 id="在-Next-主题中开启-MathJax-开关"><a href="#在-Next-主题中开启-MathJax-开关" class="headerlink" title="在 Next 主题中开启 MathJax 开关"></a>在 Next 主题中开启 MathJax 开关</h3><p>找到根目录下的/themes/next/_config.yml文件，按下Ctrl+F，在弹出的搜索框中输入mathjax查找匹配项，然后你找到了这样几行字,把 math 默认的 false 修改为true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Math Formulas Render Support</span><br><span class="line">math:</span><br><span class="line">  # Default (true) will load mathjax &#x2F; katex script on demand.</span><br><span class="line">  # That is it only render those page which has &#96;mathjax: true&#96; in Front-matter.</span><br><span class="line">  # If you set it to false, it will load mathjax &#x2F; katex srcipt EVERY PAGE.</span><br><span class="line">  per_page: true</span><br><span class="line"></span><br><span class="line">  # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    # See: https:&#x2F;&#x2F;mhchem.github.io&#x2F;MathJax-mhchem&#x2F;</span><br><span class="line">    mhchem: true</span><br></pre></td></tr></table></figure><br>在需要使用数学公式的文章的Front-matter里打开mathjax开关，考虑只有在用到公式的页面才加载 Mathjax，这样不需要渲染数学公式的页面的访问速度就不会受到影响了。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Python实现RSA算法</span><br><span class="line">categories: 密码学</span><br><span class="line">tags: RSA</span><br><span class="line">abbrlink: 49034</span><br><span class="line">mathjax: true</span><br><span class="line">date: 2020-08-02 09:16:24</span><br><span class="line">---</span><br></pre></td></tr></table></figure><br>最后一键三连<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><br>即可生效。</p>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/hexo博客的Next主题实现数学公式渲染/">http://www.cstube.cn/hexo博客的Next主题实现数学公式渲染/</a> <br />版权声明：转载请注明出处</p>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2020/08/02/hexo博客的Next主题实现数学公式渲染/">http://www.cstube.cn/2020/08/02/hexo博客的Next主题实现数学公式渲染/</a> <br />版权声明：转载请注明出处</p>
 
     </div>
 
@@ -264,11 +264,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Python%E5%AE%9E%E7%8E%B0RSA%E7%AE%97%E6%B3%95/" rel="prev" title="Python实现RSA算法">
+    <a href="/2020/08/02/Python%E5%AE%9E%E7%8E%B0RSA%E7%AE%97%E6%B3%95/" rel="prev" title="Python实现RSA算法">
       <i class="fa fa-chevron-left"></i> Python实现RSA算法
     </a></div>
       <div class="post-nav-item">
-    <a href="/Java%E4%B8%AD-DecimalFormat-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" rel="next" title="Java中 DecimalFormat 用法详解">
+    <a href="/2020/10/27/Java%E4%B8%AD-DecimalFormat-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" rel="next" title="Java中 DecimalFormat 用法详解">
       Java中 DecimalFormat 用法详解 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -460,8 +460,8 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.cstube.cn/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/";
-    this.page.identifier = "hexo博客的Next主题实现数学公式渲染/";
+    this.page.url = "http://www.cstube.cn/2020/08/02/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84Next%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/";
+    this.page.identifier = "2020/08/02/hexo博客的Next主题实现数学公式渲染/";
     this.page.title = "hexo博客的Next主题实现数学公式渲染";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

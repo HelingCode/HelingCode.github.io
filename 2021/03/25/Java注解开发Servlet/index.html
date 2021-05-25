@@ -23,7 +23,7 @@
   <meta name="description" content="关于Java自动注解开发Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java注解开发Servlet">
-<meta property="og:url" content="http://www.cstube.cn/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/index.html">
+<meta property="og:url" content="http://www.cstube.cn/2021/03/25/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/index.html">
 <meta property="og:site_name" content="Heling&#39;s Blog">
 <meta property="og:description" content="关于Java自动注解开发Servlet">
 <meta property="og:locale" content="en_US">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.imgdb.cn/item/605c192d8322e6675c76ce08.jpg">
 
-<link rel="canonical" href="http://www.cstube.cn/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/">
+<link rel="canonical" href="http://www.cstube.cn/2021/03/25/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/">
 
 
 <script id="page-configurations">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/">
+    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/2021/03/25/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
@@ -266,7 +266,7 @@
 <h4 id="第三步：测试"><a href="#第三步：测试" class="headerlink" title="第三步：测试"></a>第三步：测试</h4><p>浏览器地址栏输入<code>http://localhost:8080/demo3/servletDemo01</code>,有下面结果：</p>
 <p><img src="https://img.imgdb.cn/item/605c1e9d8322e6675c79703f.jpg" alt=""></p>
 <h2 id="2）自动注解开发的注解详解"><a href="#2）自动注解开发的注解详解" class="headerlink" title="2）自动注解开发的注解详解"></a>2）自动注解开发的注解详解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * WebServlet注解</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> WebServlet &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 指定Servlet的名称。</span></span><br><span class="line"><span class="comment">     * 相当于xml配置中&lt;servlet&gt;标签下的&lt;servlet-name&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于映射Servlet访问的url映射</span></span><br><span class="line"><span class="comment">     * 相当于xml配置时的&lt;url-pattern&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    String[] value() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 相当于xml配置时的&lt;url-pattern&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    String[] urlPatterns() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于配置Servlet的启动时机</span></span><br><span class="line"><span class="comment">     * 相当于xml配置的&lt;load-on-startup&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">loadOnStartup</span><span class="params">()</span> <span class="keyword">default</span> -1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于配置Servlet的初始化参数</span></span><br><span class="line"><span class="comment">     * 相当于xml配置的&lt;init-param&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    WebInitParam[] initParams() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于配置Servlet是否支持异步</span></span><br><span class="line"><span class="comment">     * 相当于xml配置的&lt;async-supported&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">asyncSupported</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于指定Servlet的小图标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">String <span class="title">smallIcon</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于指定Servlet的大图标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">String <span class="title">largeIcon</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于指定Servlet的描述信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">String <span class="title">description</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于指定Servlet的显示名称</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">String <span class="title">displayName</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/Java注解开发Servlet/">http://www.cstube.cn/Java注解开发Servlet/</a> <br />版权声明：转载请注明出处</p>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2021/03/25/Java注解开发Servlet/">http://www.cstube.cn/2021/03/25/Java注解开发Servlet/</a> <br />版权声明：转载请注明出处</p>
 
     </div>
 
@@ -285,7 +285,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/CentOS7%E5%90%AF%E5%8A%A8Tomcat%E5%90%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="prev" title="CentOS7启动Tomcat后浏览器无法访问的解决方法">
+    <a href="/2021/03/21/CentOS7%E5%90%AF%E5%8A%A8Tomcat%E5%90%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="prev" title="CentOS7启动Tomcat后浏览器无法访问的解决方法">
       <i class="fa fa-chevron-left"></i> CentOS7启动Tomcat后浏览器无法访问的解决方法
     </a></div>
       <div class="post-nav-item"></div>
@@ -478,8 +478,8 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.cstube.cn/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/";
-    this.page.identifier = "Java注解开发Servlet/";
+    this.page.url = "http://www.cstube.cn/2021/03/25/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/";
+    this.page.identifier = "2021/03/25/Java注解开发Servlet/";
     this.page.title = "Java注解开发Servlet";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

@@ -23,7 +23,7 @@
   <meta name="description" content="把函数作为参数传入，这样的函数称为高阶函数，高阶函数是函数式编程的体现。函数式编程就是指这种高度抽象的编程范式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python中的高阶函数">
-<meta property="og:url" content="http://www.cstube.cn/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:url" content="http://www.cstube.cn/2021/01/27/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Heling&#39;s Blog">
 <meta property="og:description" content="把函数作为参数传入，这样的函数称为高阶函数，高阶函数是函数式编程的体现。函数式编程就是指这种高度抽象的编程范式。">
 <meta property="og:locale" content="en_US">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.cstube.cn/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+<link rel="canonical" href="http://www.cstube.cn/2021/01/27/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/2021/01/27/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
@@ -272,7 +272,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = functools.reduce(func, list1)</span><br><span class="line"></span><br><span class="line">print(result)  <span class="comment"># 15</span></span><br></pre></td></tr></table></figure>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><p>filter(func, lst)函数用于过滤序列, 过滤掉不符合条件的元素, 返回一个 filter 对象。如果要转换为列表, 可以使用 list() 来转换。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = <span class="built_in">filter</span>(func, list1)</span><br><span class="line"></span><br><span class="line">print(result)  <span class="comment"># &lt;filter object at 0x0000017AF9DC3198&gt;</span></span><br><span class="line">print(<span class="built_in">list</span>(result))  <span class="comment"># [2, 4, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
-<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/Python中的高阶函数/">http://www.cstube.cn/Python中的高阶函数/</a> <br />版权声明：转载请注明出处</p>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2021/01/27/Python中的高阶函数/">http://www.cstube.cn/2021/01/27/Python中的高阶函数/</a> <br />版权声明：转载请注明出处</p>
 
     </div>
 
@@ -291,11 +291,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%9F%BA%E7%A1%80/" rel="prev" title="差分隐私基础">
+    <a href="/2021/01/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%9F%BA%E7%A1%80/" rel="prev" title="差分隐私基础">
       <i class="fa fa-chevron-left"></i> 差分隐私基础
     </a></div>
       <div class="post-nav-item">
-    <a href="/CentOS7%E5%90%AF%E5%8A%A8Tomcat%E5%90%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="CentOS7启动Tomcat后浏览器无法访问的解决方法">
+    <a href="/2021/03/21/CentOS7%E5%90%AF%E5%8A%A8Tomcat%E5%90%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="CentOS7启动Tomcat后浏览器无法访问的解决方法">
       CentOS7启动Tomcat后浏览器无法访问的解决方法 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -487,8 +487,8 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.cstube.cn/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/";
-    this.page.identifier = "Python中的高阶函数/";
+    this.page.url = "http://www.cstube.cn/2021/01/27/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/";
+    this.page.identifier = "2021/01/27/Python中的高阶函数/";
     this.page.title = "Python中的高阶函数";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
