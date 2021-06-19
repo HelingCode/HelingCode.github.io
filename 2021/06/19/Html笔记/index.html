@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple%E8%AF%BB%E4%B9%A6180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E8%AF%BB%E4%B9%A632.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E8%AF%BB%E4%B9%A616.png">
+  <link rel="mask-icon" href="/images/%E8%AF%BB%E4%B9%A6.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.cstube.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="HTML 标签">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html笔记">
+<meta property="og:url" content="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Heling&#39;s Blog">
+<meta property="og:description" content="HTML 标签">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/图像URL">
+<meta property="og:image" content="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/baidu.png">
+<meta property="og:image" content="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/pic/baidu.png">
+<meta property="article:published_time" content="2021-06-19T02:43:48.000Z">
+<meta property="article:modified_time" content="2021-06-19T02:45:53.696Z">
+<meta property="article:author" content="Heling">
+<meta property="article:tag" content="html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/图像URL">
+
+<link rel="canonical" href="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Html笔记 | Heling's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Heling's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Heling's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
+      <meta itemprop="name" content="Heling">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Heling's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Html笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-19 10:43:48 / Modified: 10:45:53" itemprop="dateCreated datePublished" datetime="2021-06-19T10:43:48+08:00">2021-06-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="HTML-标签"><a href="#HTML-标签" class="headerlink" title="HTML 标签"></a>HTML 标签</h1><a id="more"></a>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>HTML语法规范</li>
+<li>HTML基本结构标签</li>
+<li>开发工具</li>
+<li>HTML常用标签</li>
+<li>HTML中的注释和特殊字符</li>
+</ul>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>标签的书写注意规范</li>
+<li>能够写出HTML骨架标签</li>
+<li>能够写出超链接标签</li>
+<li>能够写出图片标签并说出alt和title的区别</li>
+<li>能够说出相对路径的三种形式</li>
+</ul>
+<h2 id="1-HTML语法"><a href="#1-HTML语法" class="headerlink" title="1. HTML语法"></a>1. HTML语法</h2><h3 id="1-1-HTML语法规范"><a href="#1-1-HTML语法规范" class="headerlink" title="1.1 HTML语法规范"></a>1.1 HTML语法规范</h3><ol>
+<li>HTML标是由<strong>尖括号包围的关键词</strong>，例如<code>&lt;html&gt;</code>。</li>
+<li>HTML标签<strong>通常是成对出现的</strong>，例如<code>&lt;html&gt;</code>和<code>&lt;/html&gt;</code>，我们称为<strong>双标签</strong>。标签对中的第一个标签是<em>开始标签</em>，第二个标签是<em>结束标签</em>。</li>
+<li>有些特殊的标签必须是单个标签（极少情况），例如<code>&lt;br /&gt;</code>，我们称之为<strong>单标签</strong>。<blockquote>
+<p>开始标签<code>&lt;html&gt;</code><br>结束标签<code>&lt;/html&gt;</code><br>单标签 <code>&lt;br /&gt;</code>  </p>
+</blockquote>
+</li>
+</ol>
+<h3 id="1-2-标签关系"><a href="#1-2-标签关系" class="headerlink" title="1.2 标签关系"></a>1.2 标签关系</h3><p>双标签关系可以分为两类，<code>包含关系</code>和<code>并列关系</code>。</p>
+<h4 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="并列关系"><a href="#并列关系" class="headerlink" title="并列关系"></a>并列关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-HTML基本结构标签"><a href="#2-HTML基本结构标签" class="headerlink" title="2. HTML基本结构标签"></a>2. HTML基本结构标签</h2><h3 id="2-1-第一个HTML网页"><a href="#2-1-第一个HTML网页" class="headerlink" title="2.1 第一个HTML网页"></a>2.1 第一个HTML网页</h3><p>每个页面都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这基本标签上书写。<br>HTML页面页称为HTML文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;我的第一个页面&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;&#x2F;head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        你我之间，黑马洗练，月薪过万，一飞冲天</span><br><span class="line">    &lt;&#x2F;body&gt;</span><br><span class="line">&lt;html&gt;</span><br></pre></td></tr></table></figure></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th>定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\<html\>\&lt;/html></td>
+<td>HTML标签</td>
+<td>页面中最大的标签，我们称为根标签</td>
+</tr>
+<tr>
+<td>\<head\>\&lt;/head></td>
+<td>文档的头部</td>
+<td>注意在head标签中我们必须设置的标签是title</td>
+</tr>
+<tr>
+<td>\<title>\</title></td>
+<td>文档的标题</td>
+<td>让页面拥有一个属于自己的网页标题</td>
+</tr>
+<tr>
+<td>\<body>\</body></td>
+<td>文档的主体</td>
+<td>元素包含文档的所有内容，<em>页面内容</em>基本都是放到body里面的</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>HTML文档的后缀名必须是.html或.htm</strong>，浏览器的作用读取HTML文档，并以网页的形式显示出它们。<br>此时，用浏览器打开这个网页，我们就可以预览我们写的第一个HTML文件了。</p>
+<h3 id="2-2-基本结构标签总结"><a href="#2-2-基本结构标签总结" class="headerlink" title="2.2 基本结构标签总结"></a>2.2 基本结构标签总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title 基本结构标签总结</span><br><span class="line">section 标签结构</span><br><span class="line">    HTML(根标签)：20-01-01,20-01-02</span><br><span class="line">    head：1d</span><br><span class="line">    body: 1d</span><br></pre></td></tr></table></figure>
+<h2 id="3-网页开发工具"><a href="#3-网页开发工具" class="headerlink" title="3. 网页开发工具"></a>3. 网页开发工具</h2><h3 id="3-1-VSCode的使用"><a href="#3-1-VSCode的使用" class="headerlink" title="3.1 VSCode的使用"></a>3.1 VSCode的使用</h3><ol>
+<li>双击打开软件</li>
+<li>新建文件（Ctrl + N）</li>
+<li>保存（Ctrl + S），注意移动要保存为.html文件</li>
+<li>Ctrl + 加号键，Ctrl + 减号键 可以放大缩小视图</li>
+<li>生成页面骨架结构，输入！按下Tab键</li>
+<li>利用插件在浏览器中预览网页：单击鼠标右键，在弹出出口中点击‘Open in Default Browser’.</li>
+</ol>
+<h3 id="3-2-Vscode插件安装"><a href="#3-2-Vscode插件安装" class="headerlink" title="3.2 Vscode插件安装"></a>3.2 Vscode插件安装</h3><p>Plugin List:<br>| 插件                         | 作用                                      |<br>| —————————————— | ————————————————————- |<br>| Chinese Language Pack for VS | 中文语言包                                |<br>| Open in Browser              | 右击选择浏览器打开html文件                |<br>| JS-CSS-HTML Formatter        | 每次保存，都会自动格式化js css 和html代码 |<br>| Auto Rename Tag              | 自动重命名配对的HTML/XML标签              |<br>| CSS Peek                     | 追踪至样式                                |</p>
+<h3 id="3-3-VSCode-工具生成骨架标签新增代码"><a href="#3-3-VSCode-工具生成骨架标签新增代码" class="headerlink" title="3.3 VSCode 工具生成骨架标签新增代码"></a>3.3 VSCode 工具生成骨架标签新增代码</h3><ol>
+<li>&lt;!DOCTYPE&gt;标签</li>
+<li>lang语言</li>
+<li>charset字符集</li>
+</ol>
+<h4 id="3-3-1-文档类型声明标签-lt-DOCTYPE-gt"><a href="#3-3-1-文档类型声明标签-lt-DOCTYPE-gt" class="headerlink" title="3.3.1 文档类型声明标签&lt;!DOCTYPE&gt;"></a>3.3.1 文档类型声明标签&lt;!DOCTYPE&gt;</h4><p>&lt;!DOCTYPE&gt;文档类型声明，作用就是告诉浏览器使用哪种HTML版本来显示网页。</p>
+<blockquote>
+<p><code>&lt;!DOCTYPE html&gt;</code></p>
+</blockquote>
+<p>以上代码的意思是：当前页面采取的是HTML5版本来显示网页。<br>注意：</p>
+<ol>
+<li><code>&lt;!DOCTYPE&gt;</code>声明位于文档中的最前面的位置，处于<html>标签之前。</li>
+<li><code>&lt;!DOCTYPE&gt;</code>不是一个HTML标签，它就是文档类型声明标签。</li>
+</ol>
+<h4 id="3-3-2-lang语言种类"><a href="#3-3-2-lang语言种类" class="headerlink" title="3.3.2 lang语言种类"></a>3.3.2 lang语言种类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>用来定义当前文档显示的语言。</p>
+<ol>
+<li>en定义语言为英语。</li>
+<li>zh-CN定义语言为中文。</li>
+</ol>
+<p>简单来说，定义为en就是英文网页，定义为zh-CN就是中文网页。<br>其实对于文档显示来说，定义为en的文档也可以显示中文，定义成zh-CN的文档也可以显示英文<br>这个属性对浏览器和搜索引擎（baidu、Google等）还是有作用的。</p>
+<h4 id="3-3-3-字符集"><a href="#3-3-3-字符集" class="headerlink" title="3.3.3 字符集"></a>3.3.3 字符集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta Charset&#x3D;&quot;UTF-8&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>字符集（Character set）是多个字符的集合。以便计算机能够识别和存储各种文字。<br>在\<head>标签内，可以用过\<meta>标签的<strong>charset</strong>属性来规定HTML文档应该使用哪种字符编码。<br><em>charset</em>常用的值有：GB2312、BIG5、GBK和UTF-8，其中UTF-8也被称为<strong>万国码</strong>，基本包含了全世界所有国家需要用到的字符。<br>注意：上面语法是必须要写的代码，否则可能引起乱码的情况。一般情况下，统一使用“UTF-8”，不要写成’utf8’等。</p>
+<h4 id="3-3-4-总结"><a href="#3-3-4-总结" class="headerlink" title="3.3.4 总结"></a>3.3.4 总结</h4><ol>
+<li>以上三个代码VScode自动生成</li>
+<li>\&lt;!DOCTYPE&gt;文档类型声明标签，告诉浏览器这个网页采用html5版本来显示页面。</li>
+<li>\<html lang="en">告诉浏览器或者搜索引擎这是个英文网站，本页面采取英文来显示。</li>
+<li>\<meta charset=“UTF-8”>必须写，采取<code>UTF-8</code>保存文字。如果不写就会乱码，具体原理后面分析。</li>
+</ol>
+<h3 id="4-HTML常用标签"><a href="#4-HTML常用标签" class="headerlink" title="4.HTML常用标签"></a>4.HTML常用标签</h3><h4 id="4-1-标签语义"><a href="#4-1-标签语义" class="headerlink" title="4.1 标签语义"></a>4.1 标签语义</h4><p>学习标签是有技巧的，重点是<strong>记住每个标签的语义</strong>。简单理解就是指<strong>标签的含义</strong>，即这个标签是用来干嘛的。<br><strong><em>根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰。</em></strong></p>
+<h4 id="4-2-标题标签-重要"><a href="#4-2-标题标签-重要" class="headerlink" title="4.2 标题标签\-\(重要)"></a>4.2 标题标签\<h1>-\<h6>(重要)</h4><p>为了使网页更具有语义化，我们经常会在页面中用到标题标签。HTML提供了6个登记的网页标题。即\<h1>-\<h6>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;标题一共六级选，&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;h2&gt;文字加粗一行显。&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;h3&gt;由大到小依次减，&lt;&#x2F;h3&gt;</span><br><span class="line">&lt;h4&gt;从重到轻随之变。&lt;&#x2F;h4&gt;</span><br><span class="line">&lt;h5&gt;语法规范书写后，&lt;&#x2F;h5&gt;</span><br><span class="line">&lt;h6&gt;具体效果刷新见。&lt;&#x2F;h6&gt;</span><br></pre></td></tr></table></figure></p>
+<p>单词head的缩写，意为头部、标题。<br><strong>标签语义</strong>：作为标题使用，并且一句重要性递减。</p>
+<h6 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h6><ol>
+<li>加了标题的文字会变得更粗，字号也会依次变大。</li>
+<li>一个标题独占一行。</li>
+</ol>
+<h4 id="4-3-段落和换行标签（重要）"><a href="#4-3-段落和换行标签（重要）" class="headerlink" title="4.3 段落和换行标签（重要）"></a>4.3 段落和换行标签（重要）</h4><h4 id="4-3-1-段落标签-lt-p-gt-lt-p-gt"><a href="#4-3-1-段落标签-lt-p-gt-lt-p-gt" class="headerlink" title="4.3.1 段落标签\&lt;p&gt;\&lt;/p&gt;"></a>4.3.1 段落标签<code>\&lt;p&gt;\&lt;/p&gt;</code></h4><p>在网页中，要把文字有条理地显示出来，就需要将这些文字分段显示。在HTML标签中，\<p>标签用于<strong>定义段落</strong>，它可以将整个网页分为若干段落。</p>
+<blockquote>
+<p>\<p> 我是一个段落标签\</p></p>
+</blockquote>
+<p>单词paragraph的缩写，意为段落。<br><strong>标签语义</strong>：可以把HTML文档分割成若干段落。</p>
+<h6 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h6><ol>
+<li>文本在一个段落中会根据浏览器的大小自动换行。</li>
+<li>段落和段落之间保有空隙。</li>
+</ol>
+<h4 id="4-3-2-换行标签"><a href="#4-3-2-换行标签" class="headerlink" title="4.3.2 换行标签\"></a>4.3.2 换行标签\<br /></h4><p>在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器的右端，然后才会自动换行。如果希望某段文本强制换行显示，就需要使用换行标签<code>&lt;br /&gt;</code>。</p>
+<blockquote>
+<p><code>&lt;br /&gt;</code></p>
+</blockquote>
+<p>单词break的缩写，意为打断、换行。<br><strong>标签语义</strong>：强制换行。</p>
+<h5 id="特点：-2"><a href="#特点：-2" class="headerlink" title="特点："></a>特点：</h5><ol>
+<li>\<br /> 是个单标签。</li>
+<li>\<br /> 标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些行距。</li>
+</ol>
+<h3 id="4-4-文本格式化标签"><a href="#4-4-文本格式化标签" class="headerlink" title="4.4 文本格式化标签"></a>4.4 文本格式化标签</h3><p>在网页中，有时需要为文字设置<strong>粗体</strong>、<em>斜体</em>或<u>下划线</u>效果，这时就需要用到HTML中的文本格式标签，使文字以特殊的方式显示。<br><strong>标签语义</strong>：突出重要性，比普通文字更重要。<br>| 语义   | 标签                            | 说明                                    |<br>| ——— | ———————————————- | ———————————————————- |<br>| 加粗   | \<strong></strong>或者\<b>\</b> | 更推荐使用/<strong>标签加粗，语义更强烈 |<br>| 倾斜   | \<em>\</em>或者\<i>\</i>        | 更推荐使用/<em>标签加粗，语义更强烈     |<br>| 删除线 | \<del>\</del>或者\<s>\</s>      | 更推荐使用/<del>标签加粗，语义更强烈    |<br>| 下划线 | \<ins>\</ins>或者\<u>\</u>      | 更推荐使用/<ins>标签加粗，语义更强烈    |</p>
+<p>重点记住<strong>加粗</strong>和<em>倾斜</em></p>
+<h3 id="4-5-和-标签"><a href="#4-5-和-标签" class="headerlink" title="4.5 \和\标签"></a>4.5 \<div>和\<span>标签</h3><p>\<div>和\<span>是没有语义的，它们就是一个盒子，用来装内容的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;这是头部&lt;&#x2F;div&gt;</span><br><span class="line">&lt;span&gt;今日价格&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure><br>div是division的缩写，表示分割、分区。span意味跨度、跨距。</p>
+<h6 id="特点：-3"><a href="#特点：-3" class="headerlink" title="特点："></a>特点：</h6><ol>
+<li>\<div>标签用来布局，但是现在一行只能放一个</div>。大盒子</li>
+<li>\<span>标签用来布局，一行上可以多个\<span>。小盒子</li>
+</ol>
+<h3 id="4-6-图像标签和路径（重点）"><a href="#4-6-图像标签和路径（重点）" class="headerlink" title="4.6 图像标签和路径（重点）"></a>4.6 图像标签和路径（重点）</h3><h4 id="4-6-1-图像标签"><a href="#4-6-1-图像标签" class="headerlink" title="4.6.1 图像标签"></a>4.6.1 图像标签</h4><p>在HTML标签中，<code>&lt;img&gt;</code>标签用于定义HTML页面中的图像。</p>
+<blockquote>
+<p>\<img src="图像URL" /></p>
+</blockquote>
+<p>单词Image的缩写，意为图像。<br><strong>src</strong>是\<img>的<strong>必须属性</strong>，它用于<strong>指定图像文件的路径和文件名。</strong><br>所谓属性：简单理解为属于这个图像标签的<strong>特性</strong>。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td>图片路径</td>
+<td><strong>必须属性</strong></td>
+</tr>
+<tr>
+<td>alt</td>
+<td>文本</td>
+<td>替换文本。图像不能显示的文字</td>
+</tr>
+<tr>
+<td>title</td>
+<td>文本</td>
+<td>提示文本。鼠标放到图像上，显示的文字</td>
+</tr>
+<tr>
+<td>width</td>
+<td>像素</td>
+<td>设置图像的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>像素</td>
+<td>设置图像的高度</td>
+</tr>
+<tr>
+<td>border</td>
+<td>像素</td>
+<td>设置图像的边框粗细</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h6><ol>
+<li>border通常在CSS中设置</li>
+<li>图像标签可以拥有多个属性，必须写在标签名的后面。</li>
+<li>属性之间不分先后顺序，标签名与属性、属性与属性之间<strong>均以空格分开</strong>。</li>
+<li>属性采取<strong>键值对</strong>的格式，即<code>key=&quot;value&quot;</code>的格式，属性=”属性值”</li>
+</ol>
+<h5 id="重点掌握点："><a href="#重点掌握点：" class="headerlink" title="重点掌握点："></a>重点掌握点：</h5><p>Q：请说出图像标签哪个属性是必须属性？<br>A：<code>src</code><br>Q：请说出图像标签中alt和title属性区别？<br>A：alt-&gt;图像加载失败时显示的文本；<br />title-&gt;鼠标移动到图像时显示的文本。</p>
+<h4 id="4-6-2-路径"><a href="#4-6-2-路径" class="headerlink" title="4.6.2 路径"></a>4.6.2 路径</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">前期铺垫知识</span><br><span class="line">1.目录文件夹和根目录：</span><br><span class="line">实际工作中，我嗯的文件不能随意乱放，否则用起来很难快速地找到它们，因此需要一个文件夹来管理他们。</span><br><span class="line">**目录文件夹**：就是普通文件夹，路面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等。</span><br><span class="line">**根目录**：打开目录文件夹的第一层就是根目录。</span><br><span class="line"></span><br><span class="line"> 2.VSCode打开目录文件夹</span><br><span class="line">文件-&gt;打开文件夹，选择目录文件夹。后期非常方便管理文件。</span><br></pre></td></tr></table></figure>
+<p><strong>相对路径</strong>：以<strong>引用文件所在位置</strong>为参考基础，而建立出的目录路径。<br>这里简单来说，<strong>图像相对于HTML页面的位置</strong><br>| 相对路径分类 | 符号 | 说明                                                         |<br>| —————— | —— | —————————————————————————————— |<br>| 同一级路径   |      | 图像文件位于HTML文件同一级 如\<img src="baidu.png" />        |<br>| 下一级路径   | /    | 图像文件位于HTML文件的下一级 如\<img src="./pic/baidu.png" /> |<br>| 上一级路径   | ../  | 图像文件位于HTML文件的上一级 如\&lt;img src=”../baidu.png”      |</p>
+<p>相对路径是从代码所在的这个文件出发，去寻找目标文件的，而我们这里所说的上一级、下一级和同一级就是<strong>图片相对于HTML页面的位置</strong>。</p>
+<p><strong>绝对路径</strong>：是指目录下的绝对位置，直接到达目标位置，通常从盘符开始的路径。<br>例如，“C:\users\lons\desktop\file” 或完整的网络地址：“<a target="_blank" rel="noopener" href="https://www.baidu.com/image/logo.gif”。">https://www.baidu.com/image/logo.gif”。</a></p>
+<h6 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h6><ul>
+<li>绝对路径的用的是反斜杠<code>\</code>,相对路径用的是斜杠<code>/</code></li>
+</ul>
+<h3 id="4-7-超链接标签（重要）"><a href="#4-7-超链接标签（重要）" class="headerlink" title="4.7 超链接标签（重要）"></a>4.7 超链接标签（重要）</h3><p>在HTML标签中，\<a>标签用于定义超链接，作用是从一个页面链接另一个页面。</p>
+<ol>
+<li>链接的语法格式<blockquote>
+<p>\<a href="跳转目标" target="目标窗口的弹出方式"> 文本或图像\</a><br>单词anchor的缩写，意为：锚。<br>两个属性的作用如下：</p>
+</blockquote>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>href</td>
+<td>用于指定链接目标的URL地址，（必须属性）当为标签应用href属性时，它就具有了超链接的功能。</td>
+</tr>
+<tr>
+<td>target</td>
+<td>永固指定链接页面的打开方式，其中_self为默认值，<code>_blank</code>为在新窗口中打开方式。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>链接分类</li>
+</ol>
+<ul>
+<li>外部链接：例如<code>&lt;a href=&quot;https://www.baidu.com&quot;&gt; 百度\&lt;/a&gt;。</code></li>
+<li>内部链接：网站内部页面之间的相互链接，直接链接内部页面名称集合，例如<code>&lt;a href=&quot;index.html&quot;&gt;首页\&lt;/a&gt;</code></li>
+<li>空链接：如果当时没有确定链接目标时，<code>&lt;a href=&quot;#&quot;&gt;首页&lt;/a&gt;</code></li>
+<li>下载链接：如果href里面地址是一个文件或者压缩包，会下载这个文件。</li>
+<li>网页元素链接：在网页中的各种网页元素，如文本、图像、表格、音频、视频等都可以添加超链接。例图片元素链接：<code>&lt;a href=&quot;https://www.baidu.com&quot;&gt; &lt;img src=&quot;./Pic/chrome.png&quot; title=&quot;文件&quot; alt=&quot;显示失败&quot; /&gt;&lt;/a&gt;</code></li>
+<li>锚点链接：点我们点击链接，可以快速定位到页面中的某个位置。<ul>
+<li>在链接文本的href属性中，设置属性值为<strong><u>#名字</u></strong>的形式，如<code>&lt;a href=&quot;#two&quot;&gt;第2集&lt;/a&gt;</code></li>
+<li>找到目标位置标签，里面添加一个id属性 = 刚才的名字，如：<code>&lt;h3 id =&quot;two&quot;&gt;第二集&lt;/h3&gt;</code></li>
+</ul>
+</li>
+</ul>
+<p>Day 1<br>2020-07-05  03:05<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14J4114768?p=29">BilibiliPink老师视频</a></p>
+<hr>
+<h3 id="5-注释标签和特殊字符"><a href="#5-注释标签和特殊字符" class="headerlink" title="5. 注释标签和特殊字符"></a>5. 注释标签和特殊字符</h3><h4 id="5-1-注释"><a href="#5-1-注释" class="headerlink" title="5.1 注释"></a>5.1 注释</h4><p>如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面的注释文字，就需要使用注释标签。<br>HTML中的<strong>注释</strong>以‘\<!--’开头，以'-->‘结束。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 注释语句 --&gt;     快捷键：ctrl + &#x2F;</span><br></pre></td></tr></table></figure><br>一句话：注释标签里面的内是给程序员看的，这个代码是不执行不显示到页面中的。</p>
+<p>添加注释是为了更好地解释代码的功能，便于相关开发人员理解和阅读代码，程序是不会执行注释内容的。</p>
+<h4 id="5-2-特殊字符"><a href="#5-2-特殊字符" class="headerlink" title="5.2 特殊字符"></a>5.2 特殊字符</h4><p>在HTML页面中国呢，一些特殊的符号很难或者不方便直接使用，此时我们就可以使用下面的字符来替代。<br>| 特殊字符 | 描述           | 字符的代码 |<br>| ———— | ——————— | ————— |<br>| &nbsp;   | 空格符         | \&nbsp;    |<br>| &lt;        | 小于号         | \&lt;      |<br>| &gt;        | 大于号         | \&gt;      |<br>| &amp;        | 和号           | \&amp;     |<br>| ¥        | 人民币         | \&yen;     |<br>| ©️        | 版权           | \&copy;    |<br>| ®️        | 注册商标       | \&reg;     |<br>| &deg;    | 摄氏度         | \&deg;     |<br>| &plusm;  | 正负号         | \&plusm;   |<br>| ✖️        | 乘号           | \&times;   |<br>| ➗        | 除号           | \&divide;  |<br>| &sup2;   | 平方2（上标2） | \&sup2;    |<br>| &sup3;   | 立方3（上标3） | \&sup3;    |</p>
+<p>重点记住：<strong>空格、大于号、小于号这三个</strong>，其余的使用很少。</p>
+<h3 id="6-表标签"><a href="#6-表标签" class="headerlink" title="6. 表标签"></a>6. 表标签</h3><ul>
+<li>表格标签</li>
+<li>列表标签</li>
+<li>表单标签</li>
+<li>综合案例</li>
+<li>查阅文档</li>
+</ul>
+<h4 id="6-1-表格标签"><a href="#6-1-表格标签" class="headerlink" title="6.1 表格标签"></a>6.1 表格标签</h4><p>表格是实际开发中非常常用的标签</p>
+<h5 id="6-1-1-表格的主要作用"><a href="#6-1-1-表格的主要作用" class="headerlink" title="6.1.1 表格的主要作用"></a>6.1.1 表格的主要作用</h5><p>表格主要<strong>用来显示、展示数据</strong>，因为它可以让数据显示得非常规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁杂的数据表现得很有条理。<br>表格不是用来布局页面的，而是用来<strong>展示数据</strong>的。</p>
+<h5 id="6-1-2-表格的基本语法"><a href="#6-1-2-表格的基本语法" class="headerlink" title="6.1.2 表格的基本语法"></a>6.1.2 表格的基本语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;td&gt;但愿个的文字&lt;&#x2F;td&gt;</span><br><span class="line">      ...</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>\<table>\</table>是用于定义表格的标签。</li>
+<li>\<tr>\</tr>标签用于定义表格中的行，必须嵌套在\<table>\</table>标签中。<br>-\<td>\</td>用于定义表格中的单元格，必须嵌套在\<td>\</td>标签中。</li>
+<li>j字母td指的是表格数据（table data），即数据单元格的内容。</li>
+</ul>
+<h5 id="6-1-3-表头单元格标签"><a href="#6-1-3-表头单元格标签" class="headerlink" title="6.1.3 表头单元格标签"></a>6.1.3 表头单元格标签</h5><p>一般表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加粗剧中显示。<br>\<th>标签表示HTML表格表头不分（table head的缩写）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">    &lt;th&gt;姓名&lt;&#x2F;th&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>表头单元格也是单元格，常用于表格第一行，突出重要性，表头单元格里面的文字会加粗居中显示。</p>
+<h5 id="6-1-4-表格属性"><a href="#6-1-4-表格属性" class="headerlink" title="6.1.4 表格属性"></a>6.1.4 表格属性</h5><p>表格标签这部分属性我们实际开发中并不常用，后面会通过CSS来设置。<br>目的有2个：</p>
+<ul>
+<li>记住这些英语单词，后面CSS会使用。</li>
+<li>直观感受表格的外观形态。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>align</td>
+<td>left、center、right</td>
+<td>规定表格相对周围元素的对齐方式。</td>
+</tr>
+<tr>
+<td>border</td>
+<td>1或“”</td>
+<td>规定表格单元格是否拥有边框，默认为“”，表示没有边框</td>
+</tr>
+<tr>
+<td>cellpadding</td>
+<td>像素值</td>
+<td>规定单元边缘与其内容之间的空白，默认1像素。</td>
+</tr>
+<tr>
+<td>cellspacing</td>
+<td>像素值</td>
+<td>规定单元格之间的空白，默认2像素。</td>
+</tr>
+<tr>
+<td>width</td>
+<td>像素值或百分比</td>
+<td>规定表格的宽度。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="6-1-5-表格结构标签"><a href="#6-1-5-表格结构标签" class="headerlink" title="6.1.5 表格结构标签"></a>6.1.5 表格结构标签</h5><p>使用场景：因为表格可能很长，为了更好地显示表格的语义，可以将表格分割成表格头部和表格主体两大部分。<br>在表格标签中，分别用：<strong>\<thead>标签 表格的头部区域，</strong>  <strong>\<thbody>标签 表格的主体区域。</strong>这样可以更好地分清表格结构。</p>
+<ul>
+<li>\<thead>\</thead>:用于定义表格的头部。\<thead>内部必须拥有\<tr>标签。一般是位于第一行。</li>
+<li>\<tbody>\</tbody>:用于定义表格的主体，主要用于放数据本体。</li>
+<li>以上两个标签都是放在\<table>\</table>之中。</li>
+</ul>
+<h5 id="6-1-6-合并单元格"><a href="#6-1-6-合并单元格" class="headerlink" title="6.1.6 合并单元格"></a>6.1.6 合并单元格</h5><p>特殊情况下，可以把多个单元格合并成一个单元格，只需会最简单的合并单元格即可。</p>
+<ul>
+<li>合并单元格方式<ul>
+<li>跨行合并：rowspan=“合并单元格的个数”</li>
+<li>跨列合并：colspan=”合并单元格的个数”</li>
+</ul>
+</li>
+<li>目标单元格<ul>
+<li>跨行：最上侧单元格为目标单元格，写合并代码</li>
+<li>跨列：最左侧单元格为目标单元格，写合并代码</li>
+</ul>
+</li>
+<li>合并单元格的步骤<ul>
+<li>先确定是跨行还是跨列合并。</li>
+<li>找到目标单元格，协商合并方式= 合并的单元格数量。\<td colspan="2"></td>。</li>
+<li>删除多余的单元格。</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-2-列表标签"><a href="#6-2-列表标签" class="headerlink" title="6.2 列表标签"></a>6.2 列表标签</h4><p>表格是用来显示数据的，那么<strong>列表就是用来布局的。</strong><br><strong>列表</strong>最大的特点就是整齐、整洁、有序，它作为布局会更加自由和方便。<br>根据使用情景不同，列表可以分为三大类：<strong>无需列表</strong>、<strong>有序列表</strong>和<strong>自定义列表</strong>。</p>
+<h5 id="6-2-1-无序列表（重点）"><a href="#6-2-1-无序列表（重点）" class="headerlink" title="6.2.1 无序列表（重点）"></a>6.2.1 无序列表（重点）</h5><p><code>&lt;ul&gt;</code>标签表示HTML页面中项目的无序列表，一般会以项目符号呈现列表项，而列表项使用<code>&lt;li&gt;</code>标签定义。<br>无序列表的基本语法格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;列表项1&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;列表项1&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;列表项1&lt;&#x2F;li&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>无序列表的各个列表项之间没有顺序级别之分，是并列的。</li>
+<li><code>&lt;ul&gt;&lt;/ul&gt;</code>中只能嵌套<code>&lt;li&gt;&lt;/li&gt;</code>，直接在<code>&lt;ul&gt;&lt;/ul&gt;</code>标签中输入其他标签或者文字的做法都是不被允许的。</li>
+<li><code>&lt;li&gt;</code>与<code>&lt;/li&gt;</code>直接相当于一个容齐，可以容纳所有元素。</li>
+<li>无序列表会带自己的样式属性，但在实际使用时，我们会使用CSS来设置。</li>
+</ul>
+<h5 id="6-2-2-有序列表（理解）"><a href="#6-2-2-有序列表（理解）" class="headerlink" title="6.2.2 有序列表（理解）"></a>6.2.2 有序列表（理解）</h5><p>有序劣币哦啊即为有序列表的列表，其各个列表项会按照一定的顺序排列定义。<br>在HTML标签中，<code>&lt;ol&gt;</code>标签用于定义有序列表，列表排序以数字来显示，并且使用<code>&lt;li&gt;</code>标签来定义列表项。<br>有序列表的基本语法格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">  &lt;li&gt;列表项1&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;列表项2&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;列表项3&lt;&#x2F;li&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;&#x2F;ol&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>&lt;ol&gt;&lt;/ol&gt;</code>中只能嵌套<code>&lt;li&gt;&lt;/li&gt;</code>，直接在<code>&lt;ol&gt;&lt;/ol&gt;</code>标签中输入其他标签或者文字的做法都是不被允许的。</li>
+<li><code>&lt;li&gt;</code>与<code>&lt;/li&gt;</code>直接相当于一个容齐，可以容纳所有元素。</li>
+<li>无序列表会带自己的样式属性，但在实际使用时，我们会使用CSS来设置。</li>
+</ul>
+<h5 id="6-2-3-自定义列表（重要）"><a href="#6-2-3-自定义列表（重要）" class="headerlink" title="6.2.3 自定义列表（重要）"></a>6.2.3 自定义列表（重要）</h5><p><strong><em>自定义列表的使用场景：</em></strong></p>
+<blockquote>
+<p>自定义列表常用于对术语或名次进行解释和描述，定义列表和列表项前没有任何项目符号。</p>
+</blockquote>
+<p>在HTML标签中，<code>&lt;dl&gt;</code>标签用于定义描述列表（或定义列表），该标签会与<code>&lt;dt&gt;</code>（定义项目/名字）和<code>&lt;dd&gt;</code>（描述每一个项目/名字）一起使用。<br>其基本语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">  &lt;dt&gt;名词1&lt;&#x2F;dt&gt;</span><br><span class="line">  &lt;dd&gt;名词1解释1&lt;&#x2F;dd&gt;</span><br><span class="line">  &lt;dd&gt;名词1解释2&lt;&#x2F;dd&gt;</span><br><span class="line">&lt;&#x2F;dl&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>&lt;dl&gt;&lt;/dl&gt;</code>里面只能包含<code>&lt;dt&gt;</code>和<code>&lt;dd&gt;</code></li>
+<li><code>&lt;dt&gt;&lt;/dt&gt;</code>和<code>&lt;dd&gt;&lt;/dd&gt;</code>个数没有限制，经常是一个<code>&lt;dt&gt;</code>对应多个<code>&lt;dd&gt;</code></li>
+</ul>
+<h5 id="6-2-4-列表总结"><a href="#6-2-4-列表总结" class="headerlink" title="6.2.4 列表总结"></a>6.2.4 列表总结</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th>定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;ul&gt;&lt;/ul&gt;</code></td>
+<td><strong>无序标签</strong></td>
+<td>里面只能包含li，没有顺序，使用较多。li里面可以包含任何标签。</td>
+</tr>
+<tr>
+<td><code>&lt;ol&gt;&lt;/ol&gt;</code></td>
+<td>有序标签</td>
+<td>里面只能包含li，有顺序，使用相对较少。li里面可以包含任何标签。</td>
+</tr>
+<tr>
+<td><code>&lt;dl&gt;&lt;/dl&gt;</code></td>
+<td>自定义列表</td>
+<td>里面只能包含dt和dd。dt和dd里面可以放任何标签。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意：</strong></p>
+<ol>
+<li>学习什么时候使用无序列表、自定义列表</li>
+<li>无序列表和自定义列表代码怎么写？</li>
+<li>列表布局在学习完CSS后再来完成。</li>
+</ol>
+<h4 id="6-3-表单标签（重要）"><a href="#6-3-表单标签（重要）" class="headerlink" title="6.3 表单标签（重要）"></a>6.3 表单标签（重要）</h4><h5 id="6-3-1-为什么需要表单"><a href="#6-3-1-为什么需要表单" class="headerlink" title="6.3.1 为什么需要表单"></a>6.3.1 为什么需要表单</h5><p>使用表单目的是为了<strong>收集用户信息</strong>。<br>在我们网页中，我们页需要跟用户进行交互，收集用户资料，此时就需要表单</p>
+<h5 id="6-3-2-表单的组成"><a href="#6-3-2-表单的组成" class="headerlink" title="6.3.2 表单的组成"></a>6.3.2 表单的组成</h5><p>在HTML中，一个完整的表单通常由<strong>表单域、表单空间（也称为表单元素）</strong>和<strong>提示信息</strong>3个部分组成。</p>
+<h5 id="6-3-3-表单域"><a href="#6-3-3-表单域" class="headerlink" title="6.3.3 表单域"></a>6.3.3 表单域</h5><p><strong>表单域</strong>是一个<strong>包含表单元素的区域</strong>。<br>在HTMl标签汇总，<code>&lt;form&gt;</code>标签用于定义表单域，以实现用户信息的收集和传递。<br><strong><code>&lt;form&gt;</code>会把它范围内的表单元素信息提交给服务器。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;url地址&quot; method&#x3D;&quot;提交方式&quot; name&#x3D;&quot;表单域名称&quot;&gt;</span><br><span class="line">    各种表单元素控件</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>常用属性</strong>：<br>| 属性   | 属性值   | 作用                                                 |<br>| ——— | ———— | —————————————————————————— |<br>| action | url地址  | 用于指定接受并处理表数据的服务器的URL地址。          |<br>| method | get/post | 用于设置表单数据的提交方式，其取值为get或post。      |<br>| name   | 名称     | 用于指定表单的名称，以区分同一个页面中的多个表单域。 |</p>
+<ul>
+<li>在我们写表单元素之前，应该有个表单域把它们进行包含。</li>
+<li>表单域是form标签。<h5 id="6-3-4-表单控件（表单元素）"><a href="#6-3-4-表单控件（表单元素）" class="headerlink" title="6.3.4 表单控件（表单元素）"></a>6.3.4 表单控件（表单元素）</h5>在表单域中可以定义各种表单元素，这些表单元素就是允许用户在表单出入或者选择的内容控件。</li>
+<li>input输入表单元素</li>
+<li>select下拉表单元素</li>
+<li>textarea文本域元素</li>
+</ul>
+<h5 id="6-4-1-lt-input-gt-表单元素"><a href="#6-4-1-lt-input-gt-表单元素" class="headerlink" title="6.4.1 &lt;input&gt;表单元素"></a>6.4.1 <code>&lt;input&gt;</code>表单元素</h5><p>在英文单词中，input是输入的意思，而在表单元素中<strong><code>&lt;input&gt;</code>标签用于收集用户信息</strong>。<br>在<code>&lt;input&gt;</code>，包含一个<strong>type</strong>属性，根据不同的<strong>type</strong>属性值，输入字段拥有很多种形式（可以是文本字段、复选框、掩码后的文本控件、单选按钮、按钮等。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;属性值&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>&lt;input/&gt;</code>标签为单标签</li>
+<li>type属性设置不同的属性值用来指定不同控件类型</li>
+</ul>
+<p><strong>type</strong>属性的属性值及其描述如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>button</td>
+<td>定义可点击按钮（多数情况下，用于通过javaScript启动脚本）。</td>
+</tr>
+<tr>
+<td>checkbox</td>
+<td>定义复选框。</td>
+</tr>
+<tr>
+<td>file</td>
+<td>定义输入字段和“浏览”按钮，供文件上传。</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>定义隐藏的输入字段。</td>
+</tr>
+<tr>
+<td>image</td>
+<td>定义图像形式的提交按钮。</td>
+</tr>
+<tr>
+<td>password</td>
+<td>定义密码字段，该字段中的字符被掩码。</td>
+</tr>
+<tr>
+<td>radio</td>
+<td>定义单选按钮。</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>定义重置按钮。重置按钮会清除表单中的所有数据。</td>
+</tr>
+<tr>
+<td>submit</td>
+<td>定义提交按钮。提交按钮会把表单数据发送到服务器。</td>
+</tr>
+<tr>
+<td>text</td>
+<td>定义单行的输入字段，用户可以在其中输入文本。默认宽度为20个字符。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>除type属性外，<code>&lt;input&gt;</code>标签还有其他很多属性，其常用属性如下：<br>| 属性      | 属性值       | 描述                                |<br>| ————- | —————— | —————————————————- |<br>| name      | 由用户自定义 | 定义input元素的名称                 |<br>| value     | 由用户自定义 | 规定input元素的值。                 |<br>| checkbox  | checked      | 规定此input元素首次加载时应被选中。 |<br>| maxlength | 正整数       | 规定输入字段中的字符的最大长度。    |</p>
+<ul>
+<li>name和value是每个表单元素都有的属性值主要给后台人员使用。</li>
+<li>name表单元素的名字，要求<strong>单选按钮和复选框要有相同的name值</strong>。</li>
+<li><strong>checked属性主要针对单选按钮和复选框</strong>，主要作用一打开页面，就要可以默认选中某个表单元素。</li>
+<li>maxlength是用户可以在表单元素输入的最大字符 一般较少使用。</li>
+</ul>
+<h5 id="6-4-2-lt-lable-gt-标签"><a href="#6-4-2-lt-lable-gt-标签" class="headerlink" title="6.4.2 &lt;lable&gt;标签"></a>6.4.2 <code>&lt;lable&gt;</code>标签</h5><p><strong><code>&lt;label&gt;</code></strong>标签为input元素定义标注（<strong>标签</strong>）。<br><code>&lt;label&gt;</code>标签用于绑定一个表单元素，当点击<code>&lt;label&gt;</code>标签内的文本时，浏览器就会自动将焦点（光标）转到或者选择对应的表单元素上，用来增加用户体验。<br><strong>语法</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;label for&#x3D;&quot;sex&quot;&gt;男&lt;&#x2F;label&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; id&#x3D;&quot;sex&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure><br>核心：<code>&lt;label&gt;</code>标签的<strong>for属性</strong>对应与相关元素的<strong>id属性相同</strong>。</p>
+<h5 id="6-5-1-select下拉表单元素"><a href="#6-5-1-select下拉表单元素" class="headerlink" title="6.5.1 select下拉表单元素"></a>6.5.1 select下拉表单元素</h5><p>使用场景：在页面中，如果有多个选项让用户选择，并且想要节约页面控件时，我们可以使用<code>&lt;select&gt;</code>标签控件定义<strong>下拉列表</strong>。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">    &lt;option&gt;选项1&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;option&gt;选项2&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;option&gt;选项3&lt;&#x2F;option&gt;    </span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>&lt;select&gt;</code>中至少包含一对<code>&lt;option&gt;</code>。</li>
+<li>在<code>&lt;option&gt;</code>中定义selected=”selected”时，当前项即为默认选中项。</li>
+</ul>
+<h5 id="6-5-1-textarea文本域元素"><a href="#6-5-1-textarea文本域元素" class="headerlink" title="6.5.1 textarea文本域元素"></a>6.5.1 textarea文本域元素</h5><p>使用场景：当用户输入内容较多的情况下，我们就不能使用文本框表单了，此时我们可以使用<code>&lt;textarea&gt;</code>标签。<br>在表单元素中，<code>&lt;textarea</code>标签是用于定义多行文本输入的控件。<br>使用多行文本输入控件，可以输入更多的文字，该控件常见于留言板，评论。<br>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea rows&#x3D;&quot;3&quot; cols&#x3D;&quot;20&quot;&gt;</span><br><span class="line">    文本内容</span><br><span class="line">&lt;&#x2F;textarea&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过<code>&lt;textarea&gt;</code>标签可以轻松地创建多行文本输入框。</li>
+<li>cols=”每行地字符数”，rows=“显示的行数”，<strong>实际开发不会使用，都是CSS来改变大小</strong>。</li>
+</ul>
+<h5 id="6-6-查阅文档"><a href="#6-6-查阅文档" class="headerlink" title="6.6 查阅文档"></a>6.6 查阅文档</h5><p>经常查阅文档是一个非常好的学习习惯。<br>推荐的网址：</p>
+<ul>
+<li>百度:<a target="_blank" rel="noopener" href="https://www.baidu.com">https://www.baidu.com</a></li>
+<li>W3C:<a target="_blank" rel="noopener" href="https://www.w3school.com.cn">https://www.w3school.com.cn</a></li>
+<li>MDN:<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">https://developer.mozilla.org/zh-CN/</a></li>
+</ul>
+<p>本文作者：Heling<br />本文地址： <a href="http://www.cstube.cn/2021/06/19/Html笔记/">http://www.cstube.cn/2021/06/19/Html笔记/</a> <br />版权声明：转载请注明出处</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/html/" rel="tag"># html</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/25/Java%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91Servlet/" rel="prev" title="Java注解开发Servlet">
+      <i class="fa fa-chevron-left"></i> Java注解开发Servlet
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML-%E6%A0%87%E7%AD%BE"><span class="nav-number">1.</span> <span class="nav-text">HTML 标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HTML%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">1. HTML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.1 HTML语法规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%A0%87%E7%AD%BE%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.2 标签关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">包含关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E5%88%97%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">并列关系</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTML%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">1.4.</span> <span class="nav-text">2. HTML基本结构标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%AC%AC%E4%B8%80%E4%B8%AAHTML%E7%BD%91%E9%A1%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">2.1 第一个HTML网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.2 基本结构标签总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">3. 网页开发工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-VSCode%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">3.1 VSCode的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Vscode%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.5.2.</span> <span class="nav-text">3.2 Vscode插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-VSCode-%E5%B7%A5%E5%85%B7%E7%94%9F%E6%88%90%E9%AA%A8%E6%9E%B6%E6%A0%87%E7%AD%BE%E6%96%B0%E5%A2%9E%E4%BB%A3%E7%A0%81"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.3 VSCode 工具生成骨架标签新增代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E%E6%A0%87%E7%AD%BE-lt-DOCTYPE-gt"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">3.3.1 文档类型声明标签&lt;!DOCTYPE&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-lang%E8%AF%AD%E8%A8%80%E7%A7%8D%E7%B1%BB"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">3.3.2 lang语言种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">3.3.3 字符集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-4-%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">3.3.4 总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.HTML常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E6%A0%87%E7%AD%BE%E8%AF%AD%E4%B9%89"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">4.1 标签语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE-%E9%87%8D%E8%A6%81"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">4.2 标题标签\-\(重要)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-2-%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE-%E9%87%8D%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">-\(重要)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#4-2-%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE-%E9%87%8D%E8%A6%81"><span class="nav-number">2.0.0.0.0.1.</span> <span class="nav-text">(重要)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">-\。
+1
+2
+3
+4
+5
+6
+&lt;h1&gt;标题一共六级选，&lt;&#x2F;h1&gt;
+&lt;h2&gt;文字加粗一行显。&lt;&#x2F;h2&gt;
+&lt;h3&gt;由大到小依次减，&lt;&#x2F;h3&gt;
+&lt;h4&gt;从重到轻随之变。&lt;&#x2F;h4&gt;
+&lt;h5&gt;语法规范书写后，&lt;&#x2F;h5&gt;
+&lt;h6&gt;具体效果刷新见。&lt;&#x2F;h6&gt;
+
+单词head的缩写，意为头部、标题。
+标签语义：作为标题使用，并且一句重要性递减。
+特点：
+加了标题的文字会变得更粗，字号也会依次变大。
+一个标题独占一行。
+
+4.3 段落和换行标签（重要）4.3.1 段落标签\&lt;p&gt;\&lt;&#x2F;p&gt;在网页中，要把文字有条理地显示出来，就需要将这些文字分段显示。在HTML标签中，\标签用于定义段落，它可以将整个网页分为若干段落。
+
+\ 我是一个段落标签\
+
+单词paragraph的缩写，意为段落。
+标签语义：可以把HTML文档分割成若干段落。
+特点：
+文本在一个段落中会根据浏览器的大小自动换行。
+段落和段落之间保有空隙。
+
+4.3.2 换行标签\
+在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器的右端，然后才会自动换行。如果希望某段文本强制换行显示，就需要使用换行标签&lt;br &#x2F;&gt;。
+
+&lt;br &#x2F;&gt;
+
+单词break的缩写，意为打断、换行。
+标签语义：强制换行。
+特点：
+\
+ 是个单标签。
+\
+ 标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些行距。
+
+4.4 文本格式化标签在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式标签，使文字以特殊的方式显示。
+标签语义：突出重要性，比普通文字更重要。
+| 语义   | 标签                            | 说明                                    |
+| ——— | ———————————————- | ———————————————————- |
+| 加粗   | \或者\\ | 更推荐使用&#x2F;标签加粗，语义更强烈 |
+| 倾斜   | \\或者\\        | 更推荐使用&#x2F;标签加粗，语义更强烈     |
+| 删除线 | \\或者\\      | 更推荐使用&#x2F;标签加粗，语义更强烈    |
+| 下划线 | \\或者\\      | 更推荐使用&#x2F;标签加粗，语义更强烈    |
+重点记住加粗和倾斜
+4.5 \和\标签\和\是没有语义的，它们就是一个盒子，用来装内容的。
+1
+2
+&lt;div&gt;这是头部&lt;&#x2F;div&gt;
+&lt;span&gt;今日价格&lt;&#x2F;span&gt;
+
+div是division的缩写，表示分割、分区。span意味跨度、跨距。
+特点：
+\标签用来布局，但是现在一行只能放一个。大盒子
+\标签用来布局，一行上可以多个\。小盒子
+
+4.6 图像标签和路径（重点）4.6.1 图像标签在HTML标签中，&lt;img&gt;标签用于定义HTML页面中的图像。
+
+\
+
+单词Image的缩写，意为图像。
+src是\的必须属性，它用于指定图像文件的路径和文件名。
+所谓属性：简单理解为属于这个图像标签的特性。
+
+
+
+
+属性
+属性值
+说明
+
+
+
+
+src
+图片路径
+必须属性
+
+
+alt
+文本
+替换文本。图像不能显示的文字
+
+
+title
+文本
+提示文本。鼠标放到图像上，显示的文字
+
+
+width
+像素
+设置图像的宽度
+
+
+height
+像素
+设置图像的高度
+
+
+border
+像素
+设置图像的边框粗细
+
+
+
+
+Tips:
+border通常在CSS中设置
+图像标签可以拥有多个属性，必须写在标签名的后面。
+属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。
+属性采取键值对的格式，即key&#x3D;&quot;value&quot;的格式，属性&#x3D;”属性值”
+
+重点掌握点：Q：请说出图像标签哪个属性是必须属性？
+A：src
+Q：请说出图像标签中alt和title属性区别？
+A：alt-&gt;图像加载失败时显示的文本；
+title-&gt;鼠标移动到图像时显示的文本。
+4.6.2 路径1
+2
+3
+4
+5
+6
+7
+8
+前期铺垫知识
+1.目录文件夹和根目录：
+实际工作中，我嗯的文件不能随意乱放，否则用起来很难快速地找到它们，因此需要一个文件夹来管理他们。
+**目录文件夹**：就是普通文件夹，路面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等。
+**根目录**：打开目录文件夹的第一层就是根目录。
+
+ 2.VSCode打开目录文件夹
+文件-&gt;打开文件夹，选择目录文件夹。后期非常方便管理文件。
+
+相对路径：以引用文件所在位置为参考基础，而建立出的目录路径。
+这里简单来说，图像相对于HTML页面的位置
+| 相对路径分类 | 符号 | 说明                                                         |
+| —————— | —— | —————————————————————————————— |
+| 同一级路径   |      | 图像文件位于HTML文件同一级 如\        |
+| 下一级路径   | &#x2F;    | 图像文件位于HTML文件的下一级 如\ |
+| 上一级路径   | ..&#x2F;  | 图像文件位于HTML文件的上一级 如\&lt;img src&#x3D;”..&#x2F;baidu.png”      |
+相对路径是从代码所在的这个文件出发，去寻找目标文件的，而我们这里所说的上一级、下一级和同一级就是图片相对于HTML页面的位置。
+绝对路径：是指目录下的绝对位置，直接到达目标位置，通常从盘符开始的路径。
+例如，“C:\users\lons\desktop\file” 或完整的网络地址：“https:&#x2F;&#x2F;www.baidu.com&#x2F;image&#x2F;logo.gif”。
+Tips：
+绝对路径的用的是反斜杠\,相对路径用的是斜杠&#x2F;
+
+4.7 超链接标签（重要）在HTML标签中，\标签用于定义超链接，作用是从一个页面链接另一个页面。
+
+链接的语法格式
+\ 文本或图像\
+单词anchor的缩写，意为：锚。
+两个属性的作用如下：
+
+
+
+
+
+
+
+属性
+作用
+
+
+
+
+href
+用于指定链接目标的URL地址，（必须属性）当为标签应用href属性时，它就具有了超链接的功能。
+
+
+target
+永固指定链接页面的打开方式，其中_self为默认值，_blank为在新窗口中打开方式。
+
+
+
+
+
+链接分类
+
+
+外部链接：例如&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&quot;&gt; 百度\&lt;&#x2F;a&gt;。
+内部链接：网站内部页面之间的相互链接，直接链接内部页面名称集合，例如&lt;a href&#x3D;&quot;index.html&quot;&gt;首页\&lt;&#x2F;a&gt;
+空链接：如果当时没有确定链接目标时，&lt;a href&#x3D;&quot;#&quot;&gt;首页&lt;&#x2F;a&gt;
+下载链接：如果href里面地址是一个文件或者压缩包，会下载这个文件。
+网页元素链接：在网页中的各种网页元素，如文本、图像、表格、音频、视频等都可以添加超链接。例图片元素链接：&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&quot;&gt; &lt;img src&#x3D;&quot;.&#x2F;Pic&#x2F;chrome.png&quot; title&#x3D;&quot;文件&quot; alt&#x3D;&quot;显示失败&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+锚点链接：点我们点击链接，可以快速定位到页面中的某个位置。
+在链接文本的href属性中，设置属性值为#名字的形式，如&lt;a href&#x3D;&quot;#two&quot;&gt;第2集&lt;&#x2F;a&gt;
+找到目标位置标签，里面添加一个id属性 &#x3D; 刚才的名字，如：&lt;h3 id &#x3D;&quot;two&quot;&gt;第二集&lt;&#x2F;h3&gt;
+
+
+
+Day 1
+2020-07-05  03:05
+BilibiliPink老师视频
+
+5. 注释标签和特殊字符5.1 注释如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面的注释文字，就需要使用注释标签。
+HTML中的注释以‘\‘结束。
+1
+&lt;!-- 注释语句 --&gt;     快捷键：ctrl + &#x2F;
+
+一句话：注释标签里面的内是给程序员看的，这个代码是不执行不显示到页面中的。
+添加注释是为了更好地解释代码的功能，便于相关开发人员理解和阅读代码，程序是不会执行注释内容的。
+5.2 特殊字符在HTML页面中国呢，一些特殊的符号很难或者不方便直接使用，此时我们就可以使用下面的字符来替代。
+| 特殊字符 | 描述           | 字符的代码 |
+| ———— | ——————— | ————— |
+| &amp;nbsp;   | 空格符         | \&amp;nbsp;    |
+| &lt;        | 小于号         | \&lt;      |
+| &gt;        | 大于号         | \&gt;      |
+| &amp;        | 和号           | \&amp;     |
+| ¥        | 人民币         | \&amp;yen;     |
+| ©️        | 版权           | \&amp;copy;    |
+| ®️        | 注册商标       | \&amp;reg;     |
+| &amp;deg;    | 摄氏度         | \&amp;deg;     |
+| &amp;plusm;  | 正负号         | \&amp;plusm;   |
+| ✖️        | 乘号           | \&amp;times;   |
+| ➗        | 除号           | \&amp;divide;  |
+| &amp;sup2;   | 平方2（上标2） | \&amp;sup2;    |
+| &amp;sup3;   | 立方3（上标3） | \&amp;sup3;    |
+重点记住：空格、大于号、小于号这三个，其余的使用很少。
+6. 表标签
+表格标签
+列表标签
+表单标签
+综合案例
+查阅文档
+
+6.1 表格标签表格是实际开发中非常常用的标签
+6.1.1 表格的主要作用表格主要用来显示、展示数据，因为它可以让数据显示得非常规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁杂的数据表现得很有条理。
+表格不是用来布局页面的，而是用来展示数据的。
+6.1.2 表格的基本语法1
+2
+3
+4
+5
+6
+7
+&lt;table&gt;
+    &lt;tr&gt;
+      &lt;td&gt;但愿个的文字&lt;&#x2F;td&gt;
+      ...
+    &lt;&#x2F;tr&gt;
+    ...
+  &lt;&#x2F;table&gt;
+
+
+\\是用于定义表格的标签。
+\\标签用于定义表格中的行，必须嵌套在\\标签中。
+-\\用于定义表格中的单元格，必须嵌套在\\标签中。
+j字母td指的是表格数据（table data），即数据单元格的内容。
+
+6.1.3 表头单元格标签一般表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加粗剧中显示。
+\标签表示HTML表格表头不分（table head的缩写）
+1
+2
+3
+4
+5
+6
+7
+&lt;table&gt;
+    &lt;tr&gt;
+    &lt;th&gt;姓名&lt;&#x2F;th&gt;
+    ...
+    &lt;&#x2F;tr&gt;
+    ...
+&lt;&#x2F;table&gt;
+
+表头单元格也是单元格，常用于表格第一行，突出重要性，表头单元格里面的文字会加粗居中显示。
+6.1.4 表格属性表格标签这部分属性我们实际开发中并不常用，后面会通过CSS来设置。
+目的有2个：
+
+记住这些英语单词，后面CSS会使用。
+直观感受表格的外观形态。
+
+
+
+
+
+属性名
+属性值
+描述
+
+
+
+
+align
+left、center、right
+规定表格相对周围元素的对齐方式。
+
+
+border
+1或“”
+规定表格单元格是否拥有边框，默认为“”，表示没有边框
+
+
+cellpadding
+像素值
+规定单元边缘与其内容之间的空白，默认1像素。
+
+
+cellspacing
+像素值
+规定单元格之间的空白，默认2像素。
+
+
+width
+像素值或百分比
+规定表格的宽度。
+
+
+
+
+6.1.5 表格结构标签使用场景：因为表格可能很长，为了更好地显示表格的语义，可以将表格分割成表格头部和表格主体两大部分。
+在表格标签中，分别用：\标签 表格的头部区域，  \标签 表格的主体区域。这样可以更好地分清表格结构。
+
+\\:用于定义表格的头部。\内部必须拥有\标签。一般是位于第一行。
+\\:用于定义表格的主体，主要用于放数据本体。
+以上两个标签都是放在\\之中。
+
+6.1.6 合并单元格特殊情况下，可以把多个单元格合并成一个单元格，只需会最简单的合并单元格即可。
+
+合并单元格方式
+跨行合并：rowspan&#x3D;“合并单元格的个数”
+跨列合并：colspan&#x3D;”合并单元格的个数”
+
+
+目标单元格
+跨行：最上侧单元格为目标单元格，写合并代码
+跨列：最左侧单元格为目标单元格，写合并代码
+
+
+合并单元格的步骤
+先确定是跨行还是跨列合并。
+找到目标单元格，协商合并方式&#x3D; 合并的单元格数量。\。
+删除多余的单元格。
+
+
+
+6.2 列表标签表格是用来显示数据的，那么列表就是用来布局的。
+列表最大的特点就是整齐、整洁、有序，它作为布局会更加自由和方便。
+根据使用情景不同，列表可以分为三大类：无需列表、有序列表和自定义列表。
+6.2.1 无序列表（重点）&lt;ul&gt;标签表示HTML页面中项目的无序列表，一般会以项目符号呈现列表项，而列表项使用&lt;li&gt;标签定义。
+无序列表的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ul&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  ...
+  &lt;&#x2F;ul&gt;
+
+
+无序列表的各个列表项之间没有顺序级别之分，是并列的。
+&lt;ul&gt;&lt;&#x2F;ul&gt;中只能嵌套&lt;li&gt;&lt;&#x2F;li&gt;，直接在&lt;ul&gt;&lt;&#x2F;ul&gt;标签中输入其他标签或者文字的做法都是不被允许的。
+&lt;li&gt;与&lt;&#x2F;li&gt;直接相当于一个容齐，可以容纳所有元素。
+无序列表会带自己的样式属性，但在实际使用时，我们会使用CSS来设置。
+
+6.2.2 有序列表（理解）有序劣币哦啊即为有序列表的列表，其各个列表项会按照一定的顺序排列定义。
+在HTML标签中，&lt;ol&gt;标签用于定义有序列表，列表排序以数字来显示，并且使用&lt;li&gt;标签来定义列表项。
+有序列表的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ol&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项2&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项3&lt;&#x2F;li&gt;
+  ...
+&lt;&#x2F;ol&gt;
+
+
+&lt;ol&gt;&lt;&#x2F;ol&gt;中只能嵌套&lt;li&gt;&lt;&#x2F;li&gt;，直接在&lt;ol&gt;&lt;&#x2F;ol&gt;标签中输入其他标签或者文字的做法都是不被允许的。
+&lt;li&gt;与&lt;&#x2F;li&gt;直接相当于一个容齐，可以容纳所有元素。
+无序列表会带自己的样式属性，但在实际使用时，我们会使用CSS来设置。
+
+6.2.3 自定义列表（重要）自定义列表的使用场景：
+
+自定义列表常用于对术语或名次进行解释和描述，定义列表和列表项前没有任何项目符号。
+
+在HTML标签中，&lt;dl&gt;标签用于定义描述列表（或定义列表），该标签会与&lt;dt&gt;（定义项目&#x2F;名字）和&lt;dd&gt;（描述每一个项目&#x2F;名字）一起使用。
+其基本语法如下：
+1
+2
+3
+4
+5
+&lt;dl&gt;
+  &lt;dt&gt;名词1&lt;&#x2F;dt&gt;
+  &lt;dd&gt;名词1解释1&lt;&#x2F;dd&gt;
+  &lt;dd&gt;名词1解释2&lt;&#x2F;dd&gt;
+&lt;&#x2F;dl&gt;
+
+
+&lt;dl&gt;&lt;&#x2F;dl&gt;里面只能包含&lt;dt&gt;和&lt;dd&gt;
+&lt;dt&gt;&lt;&#x2F;dt&gt;和&lt;dd&gt;&lt;&#x2F;dd&gt;个数没有限制，经常是一个&lt;dt&gt;对应多个&lt;dd&gt;
+
+6.2.4 列表总结
+
+
+
+标签名
+定义
+说明
+
+
+
+
+&lt;ul&gt;&lt;&#x2F;ul&gt;
+无序标签
+里面只能包含li，没有顺序，使用较多。li里面可以包含任何标签。
+
+
+&lt;ol&gt;&lt;&#x2F;ol&gt;
+有序标签
+里面只能包含li，有顺序，使用相对较少。li里面可以包含任何标签。
+
+
+&lt;dl&gt;&lt;&#x2F;dl&gt;
+自定义列表
+里面只能包含dt和dd。dt和dd里面可以放任何标签。
+
+
+
+
+注意：
+
+学习什么时候使用无序列表、自定义列表
+无序列表和自定义列表代码怎么写？
+列表布局在学习完CSS后再来完成。
+
+6.3 表单标签（重要）6.3.1 为什么需要表单使用表单目的是为了收集用户信息。
+在我们网页中，我们页需要跟用户进行交互，收集用户资料，此时就需要表单
+6.3.2 表单的组成在HTML中，一个完整的表单通常由表单域、表单空间（也称为表单元素）和提示信息3个部分组成。
+6.3.3 表单域表单域是一个包含表单元素的区域。
+在HTMl标签汇总，&lt;form&gt;标签用于定义表单域，以实现用户信息的收集和传递。
+&lt;form&gt;会把它范围内的表单元素信息提交给服务器。
+1
+2
+3
+&lt;form action&#x3D;&quot;url地址&quot; method&#x3D;&quot;提交方式&quot; name&#x3D;&quot;表单域名称&quot;&gt;
+    各种表单元素控件
+&lt;&#x2F;form&gt;
+
+常用属性：
+| 属性   | 属性值   | 作用                                                 |
+| ——— | ———— | —————————————————————————— |
+| action | url地址  | 用于指定接受并处理表数据的服务器的URL地址。          |
+| method | get&#x2F;post | 用于设置表单数据的提交方式，其取值为get或post。      |
+| name   | 名称     | 用于指定表单的名称，以区分同一个页面中的多个表单域。 |
+
+在我们写表单元素之前，应该有个表单域把它们进行包含。
+表单域是form标签。6.3.4 表单控件（表单元素）在表单域中可以定义各种表单元素，这些表单元素就是允许用户在表单出入或者选择的内容控件。
+input输入表单元素
+select下拉表单元素
+textarea文本域元素
+
+6.4.1 &lt;input&gt;表单元素在英文单词中，input是输入的意思，而在表单元素中&lt;input&gt;标签用于收集用户信息。
+在&lt;input&gt;，包含一个type属性，根据不同的type属性值，输入字段拥有很多种形式（可以是文本字段、复选框、掩码后的文本控件、单选按钮、按钮等。）
+1
+&lt;input type&#x3D;&quot;属性值&quot; &#x2F;&gt;
+
+
+&lt;input&#x2F;&gt;标签为单标签
+type属性设置不同的属性值用来指定不同控件类型
+
+type属性的属性值及其描述如下：
+
+
+
+
+属性值
+描述
+
+
+
+
+button
+定义可点击按钮（多数情况下，用于通过javaScript启动脚本）。
+
+
+checkbox
+定义复选框。
+
+
+file
+定义输入字段和“浏览”按钮，供文件上传。
+
+
+hidden
+定义隐藏的输入字段。
+
+
+image
+定义图像形式的提交按钮。
+
+
+password
+定义密码字段，该字段中的字符被掩码。
+
+
+radio
+定义单选按钮。
+
+
+reset
+定义重置按钮。重置按钮会清除表单中的所有数据。
+
+
+submit
+定义提交按钮。提交按钮会把表单数据发送到服务器。
+
+
+text
+定义单行的输入字段，用户可以在其中输入文本。默认宽度为20个字符。
+
+
+
+
+除type属性外，&lt;input&gt;标签还有其他很多属性，其常用属性如下：
+| 属性      | 属性值       | 描述                                |
+| ————- | —————— | —————————————————- |
+| name      | 由用户自定义 | 定义input元素的名称                 |
+| value     | 由用户自定义 | 规定input元素的值。                 |
+| checkbox  | checked      | 规定此input元素首次加载时应被选中。 |
+| maxlength | 正整数       | 规定输入字段中的字符的最大长度。    |
+
+name和value是每个表单元素都有的属性值主要给后台人员使用。
+name表单元素的名字，要求单选按钮和复选框要有相同的name值。
+checked属性主要针对单选按钮和复选框，主要作用一打开页面，就要可以默认选中某个表单元素。
+maxlength是用户可以在表单元素输入的最大字符 一般较少使用。
+
+6.4.2 &lt;lable&gt;标签&lt;label&gt;标签为input元素定义标注（标签）。
+&lt;label&gt;标签用于绑定一个表单元素，当点击&lt;label&gt;标签内的文本时，浏览器就会自动将焦点（光标）转到或者选择对应的表单元素上，用来增加用户体验。
+语法：
+1
+2
+&lt;label for&#x3D;&quot;sex&quot;&gt;男&lt;&#x2F;label&gt;
+&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; id&#x3D;&quot;sex&quot;&#x2F;&gt;
+
+核心：&lt;label&gt;标签的for属性对应与相关元素的id属性相同。
+6.5.1 select下拉表单元素使用场景：在页面中，如果有多个选项让用户选择，并且想要节约页面控件时，我们可以使用&lt;select&gt;标签控件定义下拉列表。
+语法：
+1
+2
+3
+4
+5
+&lt;select&gt;
+    &lt;option&gt;选项1&lt;&#x2F;option&gt;
+    &lt;option&gt;选项2&lt;&#x2F;option&gt;
+    &lt;option&gt;选项3&lt;&#x2F;option&gt;    
+&lt;&#x2F;select&gt;
+
+
+&lt;select&gt;中至少包含一对&lt;option&gt;。
+在&lt;option&gt;中定义selected&#x3D;”selected”时，当前项即为默认选中项。
+
+6.5.1 textarea文本域元素使用场景：当用户输入内容较多的情况下，我们就不能使用文本框表单了，此时我们可以使用&lt;textarea&gt;标签。
+在表单元素中，&lt;textarea标签是用于定义多行文本输入的控件。
+使用多行文本输入控件，可以输入更多的文字，该控件常见于留言板，评论。
+语法：
+1
+2
+3
+&lt;textarea rows&#x3D;&quot;3&quot; cols&#x3D;&quot;20&quot;&gt;
+    文本内容
+&lt;&#x2F;textarea&gt;
+
+
+通过&lt;textarea&gt;标签可以轻松地创建多行文本输入框。
+cols&#x3D;”每行地字符数”，rows&#x3D;“显示的行数”，实际开发不会使用，都是CSS来改变大小。
+
+6.6 查阅文档经常查阅文档是一个非常好的学习习惯。
+推荐的网址：
+
+百度:https:&#x2F;&#x2F;www.baidu.com
+W3C:https:&#x2F;&#x2F;www.w3school.com.cn
+MDN:https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;
+
+本文作者：Heling
+本文地址： http:&#x2F;&#x2F;www.cstube.cn&#x2F;2021&#x2F;06&#x2F;19&#x2F;Html笔记&#x2F; 
+版权声明：转载请注明出处
+</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.0.0.0.0.1.</span> <span class="nav-text">。
+1
+2
+3
+4
+5
+6
+&lt;h1&gt;标题一共六级选，&lt;&#x2F;h1&gt;
+&lt;h2&gt;文字加粗一行显。&lt;&#x2F;h2&gt;
+&lt;h3&gt;由大到小依次减，&lt;&#x2F;h3&gt;
+&lt;h4&gt;从重到轻随之变。&lt;&#x2F;h4&gt;
+&lt;h5&gt;语法规范书写后，&lt;&#x2F;h5&gt;
+&lt;h6&gt;具体效果刷新见。&lt;&#x2F;h6&gt;
+
+单词head的缩写，意为头部、标题。
+标签语义：作为标题使用，并且一句重要性递减。
+特点：
+加了标题的文字会变得更粗，字号也会依次变大。
+一个标题独占一行。
+
+4.3 段落和换行标签（重要）4.3.1 段落标签\&lt;p&gt;\&lt;&#x2F;p&gt;在网页中，要把文字有条理地显示出来，就需要将这些文字分段显示。在HTML标签中，\标签用于定义段落，它可以将整个网页分为若干段落。
+
+\ 我是一个段落标签\
+
+单词paragraph的缩写，意为段落。
+标签语义：可以把HTML文档分割成若干段落。
+特点：
+文本在一个段落中会根据浏览器的大小自动换行。
+段落和段落之间保有空隙。
+
+4.3.2 换行标签\
+在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器的右端，然后才会自动换行。如果希望某段文本强制换行显示，就需要使用换行标签&lt;br &#x2F;&gt;。
+
+&lt;br &#x2F;&gt;
+
+单词break的缩写，意为打断、换行。
+标签语义：强制换行。
+特点：
+\
+ 是个单标签。
+\
+ 标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些行距。
+
+4.4 文本格式化标签在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式标签，使文字以特殊的方式显示。
+标签语义：突出重要性，比普通文字更重要。
+| 语义   | 标签                            | 说明                                    |
+| ——— | ———————————————- | ———————————————————- |
+| 加粗   | \或者\\ | 更推荐使用&#x2F;标签加粗，语义更强烈 |
+| 倾斜   | \\或者\\        | 更推荐使用&#x2F;标签加粗，语义更强烈     |
+| 删除线 | \\或者\\      | 更推荐使用&#x2F;标签加粗，语义更强烈    |
+| 下划线 | \\或者\\      | 更推荐使用&#x2F;标签加粗，语义更强烈    |
+重点记住加粗和倾斜
+4.5 \和\标签\和\是没有语义的，它们就是一个盒子，用来装内容的。
+1
+2
+&lt;div&gt;这是头部&lt;&#x2F;div&gt;
+&lt;span&gt;今日价格&lt;&#x2F;span&gt;
+
+div是division的缩写，表示分割、分区。span意味跨度、跨距。
+特点：
+\标签用来布局，但是现在一行只能放一个。大盒子
+\标签用来布局，一行上可以多个\。小盒子
+
+4.6 图像标签和路径（重点）4.6.1 图像标签在HTML标签中，&lt;img&gt;标签用于定义HTML页面中的图像。
+
+\
+
+单词Image的缩写，意为图像。
+src是\的必须属性，它用于指定图像文件的路径和文件名。
+所谓属性：简单理解为属于这个图像标签的特性。
+
+
+
+
+属性
+属性值
+说明
+
+
+
+
+src
+图片路径
+必须属性
+
+
+alt
+文本
+替换文本。图像不能显示的文字
+
+
+title
+文本
+提示文本。鼠标放到图像上，显示的文字
+
+
+width
+像素
+设置图像的宽度
+
+
+height
+像素
+设置图像的高度
+
+
+border
+像素
+设置图像的边框粗细
+
+
+
+
+Tips:
+border通常在CSS中设置
+图像标签可以拥有多个属性，必须写在标签名的后面。
+属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。
+属性采取键值对的格式，即key&#x3D;&quot;value&quot;的格式，属性&#x3D;”属性值”
+
+重点掌握点：Q：请说出图像标签哪个属性是必须属性？
+A：src
+Q：请说出图像标签中alt和title属性区别？
+A：alt-&gt;图像加载失败时显示的文本；
+title-&gt;鼠标移动到图像时显示的文本。
+4.6.2 路径1
+2
+3
+4
+5
+6
+7
+8
+前期铺垫知识
+1.目录文件夹和根目录：
+实际工作中，我嗯的文件不能随意乱放，否则用起来很难快速地找到它们，因此需要一个文件夹来管理他们。
+**目录文件夹**：就是普通文件夹，路面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等。
+**根目录**：打开目录文件夹的第一层就是根目录。
+
+ 2.VSCode打开目录文件夹
+文件-&gt;打开文件夹，选择目录文件夹。后期非常方便管理文件。
+
+相对路径：以引用文件所在位置为参考基础，而建立出的目录路径。
+这里简单来说，图像相对于HTML页面的位置
+| 相对路径分类 | 符号 | 说明                                                         |
+| —————— | —— | —————————————————————————————— |
+| 同一级路径   |      | 图像文件位于HTML文件同一级 如\        |
+| 下一级路径   | &#x2F;    | 图像文件位于HTML文件的下一级 如\ |
+| 上一级路径   | ..&#x2F;  | 图像文件位于HTML文件的上一级 如\&lt;img src&#x3D;”..&#x2F;baidu.png”      |
+相对路径是从代码所在的这个文件出发，去寻找目标文件的，而我们这里所说的上一级、下一级和同一级就是图片相对于HTML页面的位置。
+绝对路径：是指目录下的绝对位置，直接到达目标位置，通常从盘符开始的路径。
+例如，“C:\users\lons\desktop\file” 或完整的网络地址：“https:&#x2F;&#x2F;www.baidu.com&#x2F;image&#x2F;logo.gif”。
+Tips：
+绝对路径的用的是反斜杠\,相对路径用的是斜杠&#x2F;
+
+4.7 超链接标签（重要）在HTML标签中，\标签用于定义超链接，作用是从一个页面链接另一个页面。
+
+链接的语法格式
+\ 文本或图像\
+单词anchor的缩写，意为：锚。
+两个属性的作用如下：
+
+
+
+
+
+
+
+属性
+作用
+
+
+
+
+href
+用于指定链接目标的URL地址，（必须属性）当为标签应用href属性时，它就具有了超链接的功能。
+
+
+target
+永固指定链接页面的打开方式，其中_self为默认值，_blank为在新窗口中打开方式。
+
+
+
+
+
+链接分类
+
+
+外部链接：例如&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&quot;&gt; 百度\&lt;&#x2F;a&gt;。
+内部链接：网站内部页面之间的相互链接，直接链接内部页面名称集合，例如&lt;a href&#x3D;&quot;index.html&quot;&gt;首页\&lt;&#x2F;a&gt;
+空链接：如果当时没有确定链接目标时，&lt;a href&#x3D;&quot;#&quot;&gt;首页&lt;&#x2F;a&gt;
+下载链接：如果href里面地址是一个文件或者压缩包，会下载这个文件。
+网页元素链接：在网页中的各种网页元素，如文本、图像、表格、音频、视频等都可以添加超链接。例图片元素链接：&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&quot;&gt; &lt;img src&#x3D;&quot;.&#x2F;Pic&#x2F;chrome.png&quot; title&#x3D;&quot;文件&quot; alt&#x3D;&quot;显示失败&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
+锚点链接：点我们点击链接，可以快速定位到页面中的某个位置。
+在链接文本的href属性中，设置属性值为#名字的形式，如&lt;a href&#x3D;&quot;#two&quot;&gt;第2集&lt;&#x2F;a&gt;
+找到目标位置标签，里面添加一个id属性 &#x3D; 刚才的名字，如：&lt;h3 id &#x3D;&quot;two&quot;&gt;第二集&lt;&#x2F;h3&gt;
+
+
+
+Day 1
+2020-07-05  03:05
+BilibiliPink老师视频
+
+5. 注释标签和特殊字符5.1 注释如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面的注释文字，就需要使用注释标签。
+HTML中的注释以‘\‘结束。
+1
+&lt;!-- 注释语句 --&gt;     快捷键：ctrl + &#x2F;
+
+一句话：注释标签里面的内是给程序员看的，这个代码是不执行不显示到页面中的。
+添加注释是为了更好地解释代码的功能，便于相关开发人员理解和阅读代码，程序是不会执行注释内容的。
+5.2 特殊字符在HTML页面中国呢，一些特殊的符号很难或者不方便直接使用，此时我们就可以使用下面的字符来替代。
+| 特殊字符 | 描述           | 字符的代码 |
+| ———— | ——————— | ————— |
+| &amp;nbsp;   | 空格符         | \&amp;nbsp;    |
+| &lt;        | 小于号         | \&lt;      |
+| &gt;        | 大于号         | \&gt;      |
+| &amp;        | 和号           | \&amp;     |
+| ¥        | 人民币         | \&amp;yen;     |
+| ©️        | 版权           | \&amp;copy;    |
+| ®️        | 注册商标       | \&amp;reg;     |
+| &amp;deg;    | 摄氏度         | \&amp;deg;     |
+| &amp;plusm;  | 正负号         | \&amp;plusm;   |
+| ✖️        | 乘号           | \&amp;times;   |
+| ➗        | 除号           | \&amp;divide;  |
+| &amp;sup2;   | 平方2（上标2） | \&amp;sup2;    |
+| &amp;sup3;   | 立方3（上标3） | \&amp;sup3;    |
+重点记住：空格、大于号、小于号这三个，其余的使用很少。
+6. 表标签
+表格标签
+列表标签
+表单标签
+综合案例
+查阅文档
+
+6.1 表格标签表格是实际开发中非常常用的标签
+6.1.1 表格的主要作用表格主要用来显示、展示数据，因为它可以让数据显示得非常规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁杂的数据表现得很有条理。
+表格不是用来布局页面的，而是用来展示数据的。
+6.1.2 表格的基本语法1
+2
+3
+4
+5
+6
+7
+&lt;table&gt;
+    &lt;tr&gt;
+      &lt;td&gt;但愿个的文字&lt;&#x2F;td&gt;
+      ...
+    &lt;&#x2F;tr&gt;
+    ...
+  &lt;&#x2F;table&gt;
+
+
+\\是用于定义表格的标签。
+\\标签用于定义表格中的行，必须嵌套在\\标签中。
+-\\用于定义表格中的单元格，必须嵌套在\\标签中。
+j字母td指的是表格数据（table data），即数据单元格的内容。
+
+6.1.3 表头单元格标签一般表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加粗剧中显示。
+\标签表示HTML表格表头不分（table head的缩写）
+1
+2
+3
+4
+5
+6
+7
+&lt;table&gt;
+    &lt;tr&gt;
+    &lt;th&gt;姓名&lt;&#x2F;th&gt;
+    ...
+    &lt;&#x2F;tr&gt;
+    ...
+&lt;&#x2F;table&gt;
+
+表头单元格也是单元格，常用于表格第一行，突出重要性，表头单元格里面的文字会加粗居中显示。
+6.1.4 表格属性表格标签这部分属性我们实际开发中并不常用，后面会通过CSS来设置。
+目的有2个：
+
+记住这些英语单词，后面CSS会使用。
+直观感受表格的外观形态。
+
+
+
+
+
+属性名
+属性值
+描述
+
+
+
+
+align
+left、center、right
+规定表格相对周围元素的对齐方式。
+
+
+border
+1或“”
+规定表格单元格是否拥有边框，默认为“”，表示没有边框
+
+
+cellpadding
+像素值
+规定单元边缘与其内容之间的空白，默认1像素。
+
+
+cellspacing
+像素值
+规定单元格之间的空白，默认2像素。
+
+
+width
+像素值或百分比
+规定表格的宽度。
+
+
+
+
+6.1.5 表格结构标签使用场景：因为表格可能很长，为了更好地显示表格的语义，可以将表格分割成表格头部和表格主体两大部分。
+在表格标签中，分别用：\标签 表格的头部区域，  \标签 表格的主体区域。这样可以更好地分清表格结构。
+
+\\:用于定义表格的头部。\内部必须拥有\标签。一般是位于第一行。
+\\:用于定义表格的主体，主要用于放数据本体。
+以上两个标签都是放在\\之中。
+
+6.1.6 合并单元格特殊情况下，可以把多个单元格合并成一个单元格，只需会最简单的合并单元格即可。
+
+合并单元格方式
+跨行合并：rowspan&#x3D;“合并单元格的个数”
+跨列合并：colspan&#x3D;”合并单元格的个数”
+
+
+目标单元格
+跨行：最上侧单元格为目标单元格，写合并代码
+跨列：最左侧单元格为目标单元格，写合并代码
+
+
+合并单元格的步骤
+先确定是跨行还是跨列合并。
+找到目标单元格，协商合并方式&#x3D; 合并的单元格数量。\。
+删除多余的单元格。
+
+
+
+6.2 列表标签表格是用来显示数据的，那么列表就是用来布局的。
+列表最大的特点就是整齐、整洁、有序，它作为布局会更加自由和方便。
+根据使用情景不同，列表可以分为三大类：无需列表、有序列表和自定义列表。
+6.2.1 无序列表（重点）&lt;ul&gt;标签表示HTML页面中项目的无序列表，一般会以项目符号呈现列表项，而列表项使用&lt;li&gt;标签定义。
+无序列表的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ul&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  ...
+  &lt;&#x2F;ul&gt;
+
+
+无序列表的各个列表项之间没有顺序级别之分，是并列的。
+&lt;ul&gt;&lt;&#x2F;ul&gt;中只能嵌套&lt;li&gt;&lt;&#x2F;li&gt;，直接在&lt;ul&gt;&lt;&#x2F;ul&gt;标签中输入其他标签或者文字的做法都是不被允许的。
+&lt;li&gt;与&lt;&#x2F;li&gt;直接相当于一个容齐，可以容纳所有元素。
+无序列表会带自己的样式属性，但在实际使用时，我们会使用CSS来设置。
+
+6.2.2 有序列表（理解）有序劣币哦啊即为有序列表的列表，其各个列表项会按照一定的顺序排列定义。
+在HTML标签中，&lt;ol&gt;标签用于定义有序列表，列表排序以数字来显示，并且使用&lt;li&gt;标签来定义列表项。
+有序列表的基本语法格式如下：
+1
+2
+3
+4
+5
+6
+&lt;ol&gt;
+  &lt;li&gt;列表项1&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项2&lt;&#x2F;li&gt;
+  &lt;li&gt;列表项3&lt;&#x2F;li&gt;
+  ...
+&lt;&#x2F;ol&gt;
+
+
+&lt;ol&gt;&lt;&#x2F;ol&gt;中只能嵌套&lt;li&gt;&lt;&#x2F;li&gt;，直接在&lt;ol&gt;&lt;&#x2F;ol&gt;标签中输入其他标签或者文字的做法都是不被允许的。
+&lt;li&gt;与&lt;&#x2F;li&gt;直接相当于一个容齐，可以容纳所有元素。
+无序列表会带自己的样式属性，但在实际使用时，我们会使用CSS来设置。
+
+6.2.3 自定义列表（重要）自定义列表的使用场景：
+
+自定义列表常用于对术语或名次进行解释和描述，定义列表和列表项前没有任何项目符号。
+
+在HTML标签中，&lt;dl&gt;标签用于定义描述列表（或定义列表），该标签会与&lt;dt&gt;（定义项目&#x2F;名字）和&lt;dd&gt;（描述每一个项目&#x2F;名字）一起使用。
+其基本语法如下：
+1
+2
+3
+4
+5
+&lt;dl&gt;
+  &lt;dt&gt;名词1&lt;&#x2F;dt&gt;
+  &lt;dd&gt;名词1解释1&lt;&#x2F;dd&gt;
+  &lt;dd&gt;名词1解释2&lt;&#x2F;dd&gt;
+&lt;&#x2F;dl&gt;
+
+
+&lt;dl&gt;&lt;&#x2F;dl&gt;里面只能包含&lt;dt&gt;和&lt;dd&gt;
+&lt;dt&gt;&lt;&#x2F;dt&gt;和&lt;dd&gt;&lt;&#x2F;dd&gt;个数没有限制，经常是一个&lt;dt&gt;对应多个&lt;dd&gt;
+
+6.2.4 列表总结
+
+
+
+标签名
+定义
+说明
+
+
+
+
+&lt;ul&gt;&lt;&#x2F;ul&gt;
+无序标签
+里面只能包含li，没有顺序，使用较多。li里面可以包含任何标签。
+
+
+&lt;ol&gt;&lt;&#x2F;ol&gt;
+有序标签
+里面只能包含li，有顺序，使用相对较少。li里面可以包含任何标签。
+
+
+&lt;dl&gt;&lt;&#x2F;dl&gt;
+自定义列表
+里面只能包含dt和dd。dt和dd里面可以放任何标签。
+
+
+
+
+注意：
+
+学习什么时候使用无序列表、自定义列表
+无序列表和自定义列表代码怎么写？
+列表布局在学习完CSS后再来完成。
+
+6.3 表单标签（重要）6.3.1 为什么需要表单使用表单目的是为了收集用户信息。
+在我们网页中，我们页需要跟用户进行交互，收集用户资料，此时就需要表单
+6.3.2 表单的组成在HTML中，一个完整的表单通常由表单域、表单空间（也称为表单元素）和提示信息3个部分组成。
+6.3.3 表单域表单域是一个包含表单元素的区域。
+在HTMl标签汇总，&lt;form&gt;标签用于定义表单域，以实现用户信息的收集和传递。
+&lt;form&gt;会把它范围内的表单元素信息提交给服务器。
+1
+2
+3
+&lt;form action&#x3D;&quot;url地址&quot; method&#x3D;&quot;提交方式&quot; name&#x3D;&quot;表单域名称&quot;&gt;
+    各种表单元素控件
+&lt;&#x2F;form&gt;
+
+常用属性：
+| 属性   | 属性值   | 作用                                                 |
+| ——— | ———— | —————————————————————————— |
+| action | url地址  | 用于指定接受并处理表数据的服务器的URL地址。          |
+| method | get&#x2F;post | 用于设置表单数据的提交方式，其取值为get或post。      |
+| name   | 名称     | 用于指定表单的名称，以区分同一个页面中的多个表单域。 |
+
+在我们写表单元素之前，应该有个表单域把它们进行包含。
+表单域是form标签。6.3.4 表单控件（表单元素）在表单域中可以定义各种表单元素，这些表单元素就是允许用户在表单出入或者选择的内容控件。
+input输入表单元素
+select下拉表单元素
+textarea文本域元素
+
+6.4.1 &lt;input&gt;表单元素在英文单词中，input是输入的意思，而在表单元素中&lt;input&gt;标签用于收集用户信息。
+在&lt;input&gt;，包含一个type属性，根据不同的type属性值，输入字段拥有很多种形式（可以是文本字段、复选框、掩码后的文本控件、单选按钮、按钮等。）
+1
+&lt;input type&#x3D;&quot;属性值&quot; &#x2F;&gt;
+
+
+&lt;input&#x2F;&gt;标签为单标签
+type属性设置不同的属性值用来指定不同控件类型
+
+type属性的属性值及其描述如下：
+
+
+
+
+属性值
+描述
+
+
+
+
+button
+定义可点击按钮（多数情况下，用于通过javaScript启动脚本）。
+
+
+checkbox
+定义复选框。
+
+
+file
+定义输入字段和“浏览”按钮，供文件上传。
+
+
+hidden
+定义隐藏的输入字段。
+
+
+image
+定义图像形式的提交按钮。
+
+
+password
+定义密码字段，该字段中的字符被掩码。
+
+
+radio
+定义单选按钮。
+
+
+reset
+定义重置按钮。重置按钮会清除表单中的所有数据。
+
+
+submit
+定义提交按钮。提交按钮会把表单数据发送到服务器。
+
+
+text
+定义单行的输入字段，用户可以在其中输入文本。默认宽度为20个字符。
+
+
+
+
+除type属性外，&lt;input&gt;标签还有其他很多属性，其常用属性如下：
+| 属性      | 属性值       | 描述                                |
+| ————- | —————— | —————————————————- |
+| name      | 由用户自定义 | 定义input元素的名称                 |
+| value     | 由用户自定义 | 规定input元素的值。                 |
+| checkbox  | checked      | 规定此input元素首次加载时应被选中。 |
+| maxlength | 正整数       | 规定输入字段中的字符的最大长度。    |
+
+name和value是每个表单元素都有的属性值主要给后台人员使用。
+name表单元素的名字，要求单选按钮和复选框要有相同的name值。
+checked属性主要针对单选按钮和复选框，主要作用一打开页面，就要可以默认选中某个表单元素。
+maxlength是用户可以在表单元素输入的最大字符 一般较少使用。
+
+6.4.2 &lt;lable&gt;标签&lt;label&gt;标签为input元素定义标注（标签）。
+&lt;label&gt;标签用于绑定一个表单元素，当点击&lt;label&gt;标签内的文本时，浏览器就会自动将焦点（光标）转到或者选择对应的表单元素上，用来增加用户体验。
+语法：
+1
+2
+&lt;label for&#x3D;&quot;sex&quot;&gt;男&lt;&#x2F;label&gt;
+&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; id&#x3D;&quot;sex&quot;&#x2F;&gt;
+
+核心：&lt;label&gt;标签的for属性对应与相关元素的id属性相同。
+6.5.1 select下拉表单元素使用场景：在页面中，如果有多个选项让用户选择，并且想要节约页面控件时，我们可以使用&lt;select&gt;标签控件定义下拉列表。
+语法：
+1
+2
+3
+4
+5
+&lt;select&gt;
+    &lt;option&gt;选项1&lt;&#x2F;option&gt;
+    &lt;option&gt;选项2&lt;&#x2F;option&gt;
+    &lt;option&gt;选项3&lt;&#x2F;option&gt;    
+&lt;&#x2F;select&gt;
+
+
+&lt;select&gt;中至少包含一对&lt;option&gt;。
+在&lt;option&gt;中定义selected&#x3D;”selected”时，当前项即为默认选中项。
+
+6.5.1 textarea文本域元素使用场景：当用户输入内容较多的情况下，我们就不能使用文本框表单了，此时我们可以使用&lt;textarea&gt;标签。
+在表单元素中，&lt;textarea标签是用于定义多行文本输入的控件。
+使用多行文本输入控件，可以输入更多的文字，该控件常见于留言板，评论。
+语法：
+1
+2
+3
+&lt;textarea rows&#x3D;&quot;3&quot; cols&#x3D;&quot;20&quot;&gt;
+    文本内容
+&lt;&#x2F;textarea&gt;
+
+
+通过&lt;textarea&gt;标签可以轻松地创建多行文本输入框。
+cols&#x3D;”每行地字符数”，rows&#x3D;“显示的行数”，实际开发不会使用，都是CSS来改变大小。
+
+6.6 查阅文档经常查阅文档是一个非常好的学习习惯。
+推荐的网址：
+
+百度:https:&#x2F;&#x2F;www.baidu.com
+W3C:https:&#x2F;&#x2F;www.w3school.com.cn
+MDN:https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;
+
+本文作者：Heling
+本文地址： http:&#x2F;&#x2F;www.cstube.cn&#x2F;2021&#x2F;06&#x2F;19&#x2F;Html笔记&#x2F; 
+版权声明：转载请注明出处
+</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="nav-number">3.0.0.0.0.2.</span> <span class="nav-text">特点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E6%AE%B5%E8%90%BD%E5%92%8C%E6%8D%A2%E8%A1%8C%E6%A0%87%E7%AD%BE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">4.3 段落和换行标签（重要）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1-%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE-lt-p-gt-lt-p-gt"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">4.3.1 段落标签\&lt;p&gt;\&lt;&#x2F;p&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A-1"><span class="nav-number">3.0.0.2.0.1.</span> <span class="nav-text">特点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-2-%E6%8D%A2%E8%A1%8C%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">4.3.2 换行标签\
+</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A-2"><span class="nav-number">3.0.0.3.1.</span> <span class="nav-text">特点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.1.</span> <span class="nav-text">4.4 文本格式化标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E5%92%8C-%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.2.</span> <span class="nav-text">4.5 \和\标签</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A-3"><span class="nav-number">3.0.2.0.0.1.</span> <span class="nav-text">特点：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B7%AF%E5%BE%84%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="nav-number">3.0.3.</span> <span class="nav-text">4.6 图像标签和路径（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-1-%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">4.6.1 图像标签</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Tips"><span class="nav-number">3.0.3.1.0.1.</span> <span class="nav-text">Tips:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E7%82%B9%E6%8E%8C%E6%8F%A1%E7%82%B9%EF%BC%9A"><span class="nav-number">3.0.3.1.1.</span> <span class="nav-text">重点掌握点：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-2-%E8%B7%AF%E5%BE%84"><span class="nav-number">3.0.3.2.</span> <span class="nav-text">4.6.2 路径</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Tips%EF%BC%9A"><span class="nav-number">3.0.3.2.0.1.</span> <span class="nav-text">Tips：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-%E8%B6%85%E9%93%BE%E6%8E%A5%E6%A0%87%E7%AD%BE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.7 超链接标签（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE%E5%92%8C%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-number">3.0.5.</span> <span class="nav-text">5. 注释标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E6%B3%A8%E9%87%8A"><span class="nav-number">3.0.5.1.</span> <span class="nav-text">5.1 注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-number">3.0.5.2.</span> <span class="nav-text">5.2 特殊字符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.6.</span> <span class="nav-text">6. 表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.6.1.</span> <span class="nav-text">6.1 表格标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-1-%E8%A1%A8%E6%A0%BC%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8"><span class="nav-number">3.0.6.1.1.</span> <span class="nav-text">6.1.1 表格的主要作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-2-%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.0.6.1.2.</span> <span class="nav-text">6.1.2 表格的基本语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-3-%E8%A1%A8%E5%A4%B4%E5%8D%95%E5%85%83%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.6.1.3.</span> <span class="nav-text">6.1.3 表头单元格标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-4-%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7"><span class="nav-number">3.0.6.1.4.</span> <span class="nav-text">6.1.4 表格属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-5-%E8%A1%A8%E6%A0%BC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.6.1.5.</span> <span class="nav-text">6.1.5 表格结构标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-6-%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC"><span class="nav-number">3.0.6.1.6.</span> <span class="nav-text">6.1.6 合并单元格</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.6.2.</span> <span class="nav-text">6.2 列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-2-1-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="nav-number">3.0.6.2.1.</span> <span class="nav-text">6.2.1 无序列表（重点）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-2-2-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-number">3.0.6.2.2.</span> <span class="nav-text">6.2.2 有序列表（理解）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-2-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E8%A1%A8%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">3.0.6.2.3.</span> <span class="nav-text">6.2.3 自定义列表（重要）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-2-4-%E5%88%97%E8%A1%A8%E6%80%BB%E7%BB%93"><span class="nav-number">3.0.6.2.4.</span> <span class="nav-text">6.2.4 列表总结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">3.0.6.3.</span> <span class="nav-text">6.3 表单标签（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-3-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%A1%A8%E5%8D%95"><span class="nav-number">3.0.6.3.1.</span> <span class="nav-text">6.3.1 为什么需要表单</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-3-2-%E8%A1%A8%E5%8D%95%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">3.0.6.3.2.</span> <span class="nav-text">6.3.2 表单的组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-3-3-%E8%A1%A8%E5%8D%95%E5%9F%9F"><span class="nav-number">3.0.6.3.3.</span> <span class="nav-text">6.3.3 表单域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-3-4-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6%EF%BC%88%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%EF%BC%89"><span class="nav-number">3.0.6.3.4.</span> <span class="nav-text">6.3.4 表单控件（表单元素）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-4-1-lt-input-gt-%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0"><span class="nav-number">3.0.6.3.5.</span> <span class="nav-text">6.4.1 &lt;input&gt;表单元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-4-2-lt-lable-gt-%E6%A0%87%E7%AD%BE"><span class="nav-number">3.0.6.3.6.</span> <span class="nav-text">6.4.2 &lt;lable&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-5-1-select%E4%B8%8B%E6%8B%89%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0"><span class="nav-number">3.0.6.3.7.</span> <span class="nav-text">6.5.1 select下拉表单元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-5-1-textarea%E6%96%87%E6%9C%AC%E5%9F%9F%E5%85%83%E7%B4%A0"><span class="nav-number">3.0.6.3.8.</span> <span class="nav-text">6.5.1 textarea文本域元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-6-%E6%9F%A5%E9%98%85%E6%96%87%E6%A1%A3"><span class="nav-number">3.0.6.3.9.</span> <span class="nav-text">6.6 查阅文档</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Heling"
+      src="https://pic.downk.cc/item/5f26221014195aa5946231e0.png">
+  <p class="site-author-name" itemprop="name">Heling</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heling</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.cstube.cn/2021/06/19/Html%E7%AC%94%E8%AE%B0/";
+    this.page.identifier = "2021/06/19/Html笔记/";
+    this.page.title = "Html笔记";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://cstube.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
