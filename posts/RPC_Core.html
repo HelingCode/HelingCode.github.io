@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>RPC框架核心技术 | vulkhe's blog</title><meta name="keywords" content="RPC"><meta name="author" content="vulkhe"><meta name="copyright" content="vulkhe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个较为完善的RPC框架的实现会涉及到众多的技术点，但是最核心的技术点大体上包含：服务注册与发现、网络通信协议、序列化与反序列化、RPC调用方式、线程模型、动态代理、负载均衡等。接下来，就对这些核心技术点进行简单的介绍。 服务注册与发现在分布式或微服务环境中，不同服务之间如何进行通信，这是个值得思考的问题。在早期的分布式系统中，一般是通过在服务消费者一端手动配置服务提供者的地址列表，如果服务提供者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RPC框架核心技术">
+<meta property="og:url" content="https://helingcode.github.io/posts/RPC_Core.html">
+<meta property="og:site_name" content="vulkhe&#39;s blog">
+<meta property="og:description" content="一个较为完善的RPC框架的实现会涉及到众多的技术点，但是最核心的技术点大体上包含：服务注册与发现、网络通信协议、序列化与反序列化、RPC调用方式、线程模型、动态代理、负载均衡等。接下来，就对这些核心技术点进行简单的介绍。 服务注册与发现在分布式或微服务环境中，不同服务之间如何进行通信，这是个值得思考的问题。在早期的分布式系统中，一般是通过在服务消费者一端手动配置服务提供者的地址列表，如果服务提供者">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/abc8dba3c04446318f318323dbf5f568.jpg">
+<meta property="article:published_time" content="2023-04-18T14:30:03.000Z">
+<meta property="article:modified_time" content="2023-04-18T15:11:16.967Z">
+<meta property="article:author" content="vulkhe">
+<meta property="article:tag" content="RPC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/abc8dba3c04446318f318323dbf5f568.jpg"><link rel="shortcut icon" href="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/%E5%A4%B4%E5%83%8F.jpg"><link rel="canonical" href="https://helingcode.github.io/posts/RPC_Core"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: vulkhe","link":"链接: ","source":"来源: vulkhe's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RPC框架核心技术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-18 23:11:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="vulkhe's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/abc8dba3c04446318f318323dbf5f568.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">vulkhe's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RPC框架核心技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-18T14:30:03.000Z" title="发表于 2023-04-18 22:30:03">2023-04-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-18T15:11:16.967Z" title="更新于 2023-04-18 23:11:16">2023-04-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RPC框架核心技术"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>一个较为完善的RPC框架的实现会涉及到众多的技术点，但是最核心的技术点大体上包含：服务注册与发现、网络通信协议、序列化与反序列化、RPC调用方式、线程模型、动态代理、负载均衡等。接下来，就对这些核心技术点进行简单的介绍。</p>
+<h2 id="服务注册与发现"><a href="#服务注册与发现" class="headerlink" title="服务注册与发现"></a>服务注册与发现</h2><p>在分布式或微服务环境中，不同服务之间如何进行通信，这是个值得思考的问题。在早期的分布式系统中，一般是通过在服务消费者一端手动配置服务提供者的地址列表，如果服务提供者的地址列表发生变化之后，还要手动修改服务消费者中配置的服务提供者的地址，之后要重启服务消费者才能使配置生效。</p>
+<p>后来可以通过服务消费者HTTP请求调用、保存服务提供者的地址列表，由程序开发人员在服务消费者中主动感知服务提供者暴露的服务信息，这就造成了服务消费者与服务提供者之间严重的耦合问题。</p>
+<p>正式由于分布式系统中存在着这些问题，注册中心诞生了。在RPC框架中，主要使用注册中心实现服务的注册与发现。服务提供者上线后将自身的服务列表注册到注册中心，当服务提供者下线时，从注册中心中移除自身的服务列表。服务消费者上线后，向注册中心订阅服务提供和的服务列表，然后通过负载均衡算法选择其中一个服务节点进行调用。</p>
+<p>为防止由于断网、系统宕机、程序崩溃等问题造成的注册中心一直残留无效服务列表的问题，在引入注册中心时，要采取 <strong>主动通知+心跳检测</strong> 的方案。</p>
+<p><strong>具体实现的方案就是</strong> ：当服务提供者上线时，主动将自身提供的服务列表注册到注册中心；当服务提供者下线时，主动移除自身注册到注册中心的服务列表。除此之外，需要实现心跳检测的方案，心跳检测可以在服务提供者实现，也可以由注册中心实现。例如，注册中心可以每隔30秒向服务提供者发送一次心跳检测，如果连续3次未收到服务提供者的响应，则认为该服务提供者已经下线，将其注册到注册中心的服务列表移除，并通知服务消费者服务列表发生了变化。</p>
+<p>采用主动通知+心跳检测的方案，当服务提供者或者服务消费者发生变化时，无需重启任何服务即可快速实现服务的注册与发现功能。</p>
+<h2 id="网络通信协议"><a href="#网络通信协议" class="headerlink" title="网络通信协议"></a>网络通信协议</h2><p>RPC框架最主要的功能就是实现RPC远程过程调用，涉及到远程过程调用，那就一定是通过网络进行的，此时就必须通过某种网络通信协议进行数据交互，需要考虑采用哪些方式实现数据的编解码。</p>
+<p>由于在分布式系统中，对RPC框架有着极高的性能要求，所以，在RPC框架中，网络通信协议的实现越简单越好，尽可能减少数据编解码和在网络传输过程中的性能损耗。</p>
+<p>通用的网络协议有HTTP、TPC、UDP等，RPC框架可以基于这些通用的网络通信协议实现，也可以根据实际需求，实现自定义的网路通信协议。</p>
+<h2 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h2><p>数据在网路上进行传输时，需要将原始数据采用某种编码方式序列化成二进制字节流在网络上传输，不管是服务提供者还是服务消费者接收到数据后，都需要将二进制字节流数据反序列化成原始数据。为了尽可能降低序列化和反序列化带来的性能问题，一般在RPC框架中会选择比较高效的序列化算法。</p>
+<p>常用的序列化框架有：<strong>FastJson、Kryo、Hessian、Protobuf等。</strong></p>
+<h2 id="RPC调用方式"><a href="#RPC调用方式" class="headerlink" title="RPC调用方式"></a>RPC调用方式</h2><p>说到RPC的调用方式，可能很多小伙伴不是很了解，RPC不就是远程过程调用吗？还能有什么调用方式啊？其实一个成熟的RPC框架，例如Dubbo等会提供四种不同的调用方式，分别为：同步调用（Sync）、异步调用（Future）、回调（Callback）、单向调用（Oneway）。</p>
+<h3 id="同步调用（Sync）"><a href="#同步调用（Sync）" class="headerlink" title="同步调用（Sync）"></a>同步调用（Sync）</h3><p>同步调用（Sync）：服务消费者发起RPC调用后，线程会一直阻塞，直到服务提供者返回结果或者超时异常。在RPC框架中，一般会采用同步调用的方式，但是在RPC框架内部的实现中，本质上还是采用的是异步处理。例如，Dubbo中就存在着经典的异步转同步的逻辑。另外，当采用同步调用方式时，要设置超时时间。如下图所示。</p>
+<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/RPC%E5%90%8C%E6%AD%A5%E8%B0%83%E7%94%A8.png" alt="RPC同步调用"></p>
+<h3 id="异步调用（Future）"><a href="#异步调用（Future）" class="headerlink" title="异步调用（Future）"></a>异步调用（Future）</h3><p>异步调用（Future）：服务消费者发起RPC调用后，线程不会阻塞，获取到RPC框架返回的Future对象。RPC调用的结果数据会被服务提供者缓存起来，服务消费者根据自身实际情况决定获取结果数据。当服务消费者主动获取异步结果数据时是阻塞的。如下图所示。</p>
+<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/RPC%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8.png" alt="RPC异步调用"></p>
+<h3 id="回调（Callback）"><a href="#回调（Callback）" class="headerlink" title="回调（Callback）"></a>回调（Callback）</h3><p>服务消费者发起RPC调用后，会将回调接口Callback对象发送给RPC框架。此时也不需要同步等待RPC框架的返回结果，直接返回。当RPC框架接收到服务提供者处理的结果数据或者超时异常后，会执行Callback回调。一般在定义和实现Callback接口时，都要实现处理成功的方法和异常方法。例如 success(Object result) 方法和 fail(Exception e) 方法。</p>
+<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/RPC%E5%9B%9E%E8%B0%83.png" alt="RPC回调"></p>
+<h3 id="单向调用（Oneway）"><a href="#单向调用（Oneway）" class="headerlink" title="单向调用（Oneway）"></a>单向调用（Oneway）</h3><p>服务消费者发送RPC调用后，直接返回，忽略返回结果。</p>
+<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/RPC%E5%8D%95%E5%90%91%E8%B0%83%E7%94%A8.png" alt="RPC单向调用"></p>
+<h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><p>对于一个成熟并且完善的RPC框架来说，线程模型是其必须要关注的。一般情况下，在RPC框架中，线程模型会分为IO线程和业务线程。例如，大名鼎鼎的Dubbo底层使用的是Netty进行网络通信，并且在使用Netty时，采用了Reactor线程模型。使用Netty时创建的Boss线程池和Worker线程池就可以看作是IO线程。</p>
+<h3 id="如何选择执行线程"><a href="#如何选择执行线程" class="headerlink" title="如何选择执行线程"></a>如何选择执行线程</h3><p>IO线程主要用来负责事件轮询、数据的编解码，数据传输等功能。如果在整个数据处理或者业务处理的过程中，不涉及复杂的逻辑计算、数据库查询等操作，并且整个处理过程可以立即完成，则可以将整个处理过程放在IO线程中完成。否则，就需要将数据的处理或者业务处理放在业务线程中执行，以免阻塞IO线程。</p>
+<h3 id="Dubbo线程模型的分发策略"><a href="#Dubbo线程模型的分发策略" class="headerlink" title="Dubbo线程模型的分发策略"></a>Dubbo线程模型的分发策略</h3><p>Dubbo提供了五种可配置的线程分发策略，也就是利用这五种策略分别确定了哪些逻辑在IO线程中执行，哪些逻辑在业务线程中执行。这里，我将Dubbo中提供的五种线程分发策略总结如下所示。</p>
+<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/Dubbo%E7%BA%BF%E7%A8%8B%E5%88%86%E5%8F%91%E7%AD%96%E7%95%A5.png" alt="Dubbo线程分发策略"></p>
+<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h2><p>RPC框架能够使得开发人员像调用本地服务一样调用远程服务，这得益于动态代理技术。可以这么说，几乎每一款成熟并且完善的RPC框架都离不开动态代理技术。</p>
+<p>利用动态代理技术创建一个代理对象，在代理对象中完成数据的编码操作，发起远程调用，将数据发送给服务提供者，接收从服务提供者返回的数据，进行解码等操作。代理对象屏蔽了RPC框架底层的调用细节。</p>
+<p>RPC框架离不开动态代理技术，并且代理对象是在程序运行时动态生成的，所以生成代理类的速度和字节码大小都会影响到RPC框架的整体性能以及对系统资源的消耗程度，所以，选择动态代理技术时需要综合考虑生成代理类的速度和生成的字节码大小。</p>
+<p>目前常用的动态代理技术有：<strong>JDK 动态代理、Cglib、Javassist、ASM、Byte Buddy</strong>。</p>
+<h3 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h3><p>JDK动态代理在运行时可以动态生成代理对象，但是使用JDK动态代理时，代理对象必须实现一个接口，这是因为生成的代理对象继承了Proxy类，并且生成的代理对象不能代理接口中未定义的方法。另外，JDK动态代理通过反射代理类中的方法，比直接调用方法的性能要低。</p>
+<h3 id="Cglib动态代理"><a href="#Cglib动态代理" class="headerlink" title="Cglib动态代理"></a>Cglib动态代理</h3><p>Cglib动态代理是通过ASM字节码生成框架实现的，通过ASM字节码技术生成代理类，并且生成的代理类会继承被代理类，所以，代理类的类型不受限制。因为生成的代理类会继承被代理类，这就要求被代理类不能使用final关键字修饰。Cglib动态代理是通过FastClass利用index索引直接定位要调用的方法进行直接调用，在性能上比JDK动态代理高。</p>
+<h3 id="Javassist和ASM"><a href="#Javassist和ASM" class="headerlink" title="Javassist和ASM"></a>Javassist和ASM</h3><p>Javassist和ASM都是操作Java字节码的框架，使用这两个框架时，需要开发人员对Class文件的结构以及一些JVM的知识有所了解。但是这两种框架生成的代理对象的执行性能都比反射要高。</p>
+<h3 id="Byte-Buddy"><a href="#Byte-Buddy" class="headerlink" title="Byte Buddy"></a>Byte Buddy</h3><p>Byte Buddy也是一个操作字节码的类库，Byte Buddy的功能强大，相比Javassist和ASM来说，Byte Buddy提供了更加方便的API来创建和修改Java的字节码，并且使用Byte Buddy时，不需要理解字节码的格式，性能也更加优越。</p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>在分布式系统中，往往服务提供者和服务消费者都不会存在单点的情况，二者在实现上都会存在多个节点，那服务消费者如何从多个服务提供者节点中选择一个进行远程调用呢？这就要求RPC框架在实现上支持负载均衡。</p>
+<p>在RPC框架的实现中，负载均衡策略和算法也是影响RPC框架吞吐量的一个重要因素。常用的负载均衡算法包括：轮询（Round-Robin）、加权轮询（Weighted Round-Robin）、最少连接数（Least Connections）、一致性Hash（Consistent Hash）。</p>
+<h3 id="轮询（Round-Robin）"><a href="#轮询（Round-Robin）" class="headerlink" title="轮询（Round-Robin）"></a>轮询（Round-Robin）</h3><p>轮询（Round-Robin）负载均衡算法是依次轮询服务提供者节点，并且不会考虑服务提供者节点的实际负载情况。</p>
+<h3 id="加权轮询（Weighted-Round-Robin）"><a href="#加权轮询（Weighted-Round-Robin）" class="headerlink" title="加权轮询（Weighted Round-Robin）"></a>加权轮询（Weighted Round-Robin）</h3><p>加权轮询（Weighted Round-Robin）负载均衡算法在轮询（Round-Robin）算法的基础上，为每个服务提供者节点增加了权重系数，根据权重系数来为每个服务提供者节点分配不同比例的流量。并且权重系数可以根据服务提供者节点的实时负载情况进行调整，使集群节点的负载相对来说比较均衡。</p>
+<h3 id="最少连接数（Least-Connections）"><a href="#最少连接数（Least-Connections）" class="headerlink" title="最少连接数（Least Connections）"></a>最少连接数（Least Connections）</h3><p>最少连接数（Least Connections）负载均衡算法是服务消费者根据服务提供者节点当前的连接数进行负载均衡，服务消费者会选择连接数最少的一个服务提供者节点进行调用。</p>
+<h3 id="一致性Hash（Consistent-Hash）"><a href="#一致性Hash（Consistent-Hash）" class="headerlink" title="一致性Hash（Consistent Hash）"></a>一致性Hash（Consistent Hash）</h3><p>一致性Hash（Consistent Hash）负载均衡算法是一种特殊的Hash算法，它在逻辑上采用Hash环实现，通过Hash算法将对象和服务提供者节点放在Hash环上，为对象选择对应的服务提供者节点，例如，在Hash环上按照顺时针查找距离对象的Hash值最近的服务提供者节点。使用一致性Hash算法使得当服务提供者上线或下线时，不会造成Hash环上对象的大规模移动。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://helingcode.github.io">vulkhe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://helingcode.github.io/posts/RPC_Core.html">https://helingcode.github.io/posts/RPC_Core.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://helingcode.github.io" target="_blank">vulkhe's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/RPC/">RPC</a></div><div class="post_share"><div class="social-share" data-image="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/abc8dba3c04446318f318323dbf5f568.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/Annotation_Configuration.html"><img class="next-cover" src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/p2889295883.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">深入理解@Configuration注解</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">vulkhe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/HelingCode"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/HelingCode" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:linghezhu.if@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-number">1.</span> <span class="toc-text">服务注册与发现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">网络通信协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">序列化与反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">RPC调用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E8%B0%83%E7%94%A8%EF%BC%88Sync%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">同步调用（Sync）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8%EF%BC%88Future%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">异步调用（Future）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%EF%BC%88Callback%EF%BC%89"><span class="toc-number">4.3.</span> <span class="toc-text">回调（Callback）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%90%91%E8%B0%83%E7%94%A8%EF%BC%88Oneway%EF%BC%89"><span class="toc-number">4.4.</span> <span class="toc-text">单向调用（Oneway）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">线程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%89%A7%E8%A1%8C%E7%BA%BF%E7%A8%8B"><span class="toc-number">5.1.</span> <span class="toc-text">如何选择执行线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dubbo%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E5%8F%91%E7%AD%96%E7%95%A5"><span class="toc-number">5.2.</span> <span class="toc-text">Dubbo线程模型的分发策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">动态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">6.1.</span> <span class="toc-text">JDK动态代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cglib%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">6.2.</span> <span class="toc-text">Cglib动态代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Javassist%E5%92%8CASM"><span class="toc-number">6.3.</span> <span class="toc-text">Javassist和ASM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Byte-Buddy"><span class="toc-number">6.4.</span> <span class="toc-text">Byte Buddy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">7.</span> <span class="toc-text">负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E8%AF%A2%EF%BC%88Round-Robin%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">轮询（Round-Robin）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%9D%83%E8%BD%AE%E8%AF%A2%EF%BC%88Weighted-Round-Robin%EF%BC%89"><span class="toc-number">7.2.</span> <span class="toc-text">加权轮询（Weighted Round-Robin）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%91%E8%BF%9E%E6%8E%A5%E6%95%B0%EF%BC%88Least-Connections%EF%BC%89"><span class="toc-number">7.3.</span> <span class="toc-text">最少连接数（Least Connections）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%EF%BC%88Consistent-Hash%EF%BC%89"><span class="toc-number">7.4.</span> <span class="toc-text">一致性Hash（Consistent Hash）</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/RPC_Core.html" title="RPC框架核心技术"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/abc8dba3c04446318f318323dbf5f568.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RPC框架核心技术"/></a><div class="content"><a class="title" href="/posts/RPC_Core.html" title="RPC框架核心技术">RPC框架核心技术</a><time datetime="2023-04-18T14:30:03.000Z" title="发表于 2023-04-18 22:30:03">2023-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/Annotation_Configuration.html" title="深入理解@Configuration注解"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/p2889295883.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入理解@Configuration注解"/></a><div class="content"><a class="title" href="/posts/Annotation_Configuration.html" title="深入理解@Configuration注解">深入理解@Configuration注解</a><time datetime="2023-04-16T06:58:57.000Z" title="发表于 2023-04-16 14:58:57">2023-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/Annotation.html" title="深入理解Java注解"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/%E5%A3%81%E7%BA%B8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入理解Java注解"/></a><div class="content"><a class="title" href="/posts/Annotation.html" title="深入理解Java注解">深入理解Java注解</a><time datetime="2023-04-16T04:15:51.000Z" title="发表于 2023-04-16 12:15:51">2023-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/spring_aop.html" title="JDK动态代理和Cglib动态代理"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/francesco-ungaro-V6TWE6h8gyg-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JDK动态代理和Cglib动态代理"/></a><div class="content"><a class="title" href="/posts/spring_aop.html" title="JDK动态代理和Cglib动态代理">JDK动态代理和Cglib动态代理</a><time datetime="2022-11-27T02:15:32.000Z" title="发表于 2022-11-27 10:15:32">2022-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ds_btc.html" title="BTC中的数据结构"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/alessio-soggetti-PdGBci-4jR8-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BTC中的数据结构"/></a><div class="content"><a class="title" href="/posts/ds_btc.html" title="BTC中的数据结构">BTC中的数据结构</a><time datetime="2022-11-25T06:41:49.000Z" title="发表于 2022-11-25 14:41:49">2022-11-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By vulkhe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index"><img class="icp-icon" src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/beian_logo.png"><span>苏ICP备2021044866号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://helingcode.github.io/posts/RPC_Core.html'
+    this.page.identifier = '/posts/RPC_Core.html'
+    this.page.title = 'RPC框架核心技术'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://cstube.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Disqus' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
