@@ -1377,7 +1377,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: -apple-system, BlinkMacSystemFont, "Times New Roman", "宋体";
+  font-family: Times New Roman, 宋体;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -1796,7 +1796,7 @@ pre[class*='language-'] pre > code.highlight {
 #article-container pre,
 #article-container code {
   font-size: var(--global-font-size);
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif !important;
+  font-family: consolas, Menlo !important;
 }
 #article-container code {
   padding: 2px 4px;
