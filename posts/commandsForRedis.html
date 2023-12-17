@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/martin-jernberg-TA05o8C77ok-unsplash.jpg">
 <meta property="article:published_time" content="2022-11-14T01:45:24.000Z">
-<meta property="article:modified_time" content="2023-07-09T23:21:02.000Z">
+<meta property="article:modified_time" content="2023-12-17T07:37:53.040Z">
 <meta property="article:author" content="vulkhe">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-07-10 07:21:02'
+  postUpdate: '2023-12-17 15:37:53'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -143,9 +143,9 @@
     }
     detectApple()
     })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="vulkhe's blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/caleb-riston-TXiBwX0kg-Q-unsplash.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">vulkhe's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Redis常用命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-14T01:45:24.000Z" title="发表于 2022-11-14 09:45:24">2022-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-09T23:21:02.000Z" title="更新于 2023-07-10 07:21:02">2023-07-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Redis/">Redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Redis常用命令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Redis 所有的 key（键）都是字符串。在谈基础数据结构时，我们讨论的是存储值的数据类型，主要包括常见的 5 种数据类型，分别是：String、List、Set、Zset、Hash。</p>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/caleb-riston-TXiBwX0kg-Q-unsplash.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">vulkhe's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Redis常用命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-14T01:45:24.000Z" title="发表于 2022-11-14 09:45:24">2022-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-17T07:37:53.040Z" title="更新于 2023-12-17 15:37:53">2023-12-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Redis/">Redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Redis常用命令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Redis 所有的 key（键）都是字符串。在谈基础数据结构时，我们讨论的是存储值的数据类型，主要包括常见的 5 种数据类型，分别是：String、List、Set、Zset、Hash。</p>
 <h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>Redis 是一个 key-value 的数据库，key 是一般的 String，不过 value 却是多种多样的：</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1658728198413.png" alt="1658728198413"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1658728198413-20231217153652947.png" alt="1658728198413"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -219,7 +219,7 @@
 <li>int：整数类型，可以做自增.自减操作</li>
 <li>float：浮点类型，可以做自增.自减操作</li>
 </ul>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1652890121291.png" alt="1652890121291"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1652890121291.png" alt="1652890121291"></p>
 <h4 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h4><p>String的常见命令有：</p>
 <ul>
 <li>SET：添加或者修改已经存在的一个String类型的键值对</li>
@@ -257,7 +257,7 @@
 <p>例如，需要存储用户.商品信息到redis，有一个用户id是1，有一个商品id恰好也是1，此时如果使用id作为key，那就会冲突了，该怎么办？</p>
 <p>我们可以通过给key添加前缀加以区分，不过这个前缀不是随便加的，有一定的规范：</p>
 <p>Redis的key允许有多个单词形成层级结构，多个单词之间用’:’隔开，格式如下：</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1652941631682.png" alt="1652941631682"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1652941631682.png" alt="1652941631682"></p>
 <p>这个格式并非固定，也可以根据自己的需求来删除或添加词条。</p>
 <p>例如我们的项目名称叫 heima，有user和product两种不同类型的数据，我们可以这样定义key：</p>
 <ul>
@@ -288,12 +288,12 @@
 </table>
 </div>
 <p>一旦我们向redis采用这样的方式存储，那么在可视化界面中，redis会以层级结构来进行存储，形成类似于这样的结构，更加方便Redis获取数据</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1652941883537.png" alt="1652941883537"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1652941883537.png" alt="1652941883537"></p>
 <h3 id="Hash命令"><a href="#Hash命令" class="headerlink" title="Hash命令"></a>Hash命令</h3><p>Hash类型，也叫散列，其value是一个无序字典，类似于Java中的HashMap结构。</p>
 <p>String结构是将对象序列化为JSON字符串后存储，当需要修改对象某个字段时很不方便：</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1652941995945.png" alt="1652941995945"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1652941995945.png" alt="1652941995945"></p>
 <p>Hash结构可以将对象中的每个字段独立存储，可以针对单个字段做CRUD：</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1652942027719.png" alt="1652942027719"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1652942027719.png" alt="1652942027719"></p>
 <p><strong>Hash类型的常见命令</strong></p>
 <ul>
 <li><p>HSET key field value：添加或者修改hash类型key的field的值</p>
@@ -352,7 +352,7 @@
 <li>LRANGE key star end：返回一段角标范围内的所有元素</li>
 <li>BLPOP和BRPOP：与LPOP和RPOP类似，只不过在没有元素时等待指定时间，而不是直接返回nil</li>
 </ul>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/1652943604992.png" alt="1652943604992"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/1652943604992.png" alt="1652943604992"></p>
 <ul>
 <li>LPUSH和RPUSH</li>
 </ul>
@@ -384,10 +384,10 @@
 <li>SUNION key1 key2 ..：求key1和key2的并集</li>
 </ul>
 <p>例如两个集合：s1和s2:</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/image-20221114142002049.png" alt="image-20221114142002049"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/image-20221114142002049.png" alt="image-20221114142002049"></p>
 <p>求交集：SINTER s1 s2</p>
 <p>求s1与s2的不同：SDIFF s1 s2</p>
-<p><img src="https://heling-picture.oss-cn-hangzhou.aliyuncs.com/img/image-20221114142018642.png" alt="image-20221114142018642"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HelingCode/CDN-vulkhe-Pic@master/uPic/2023/12/17/image-20221114142018642.png" alt="image-20221114142018642"></p>
 <p><strong>具体命令</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; sadd s1 a b <span class="title function_">c</span></span><br><span class="line"><span class="params">(integer)</span> <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; smembers s1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;c&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;b&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; srem s1 <span class="title function_">a</span></span><br><span class="line"><span class="params">(integer)</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; SISMEMBER s1 <span class="title function_">a</span></span><br><span class="line"><span class="params">(integer)</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; SISMEMBER s1 <span class="title function_">b</span></span><br><span class="line"><span class="params">(integer)</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; SCARD <span class="title function_">s1</span></span><br><span class="line"><span class="params">(integer)</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p><strong>案例</strong></p>
